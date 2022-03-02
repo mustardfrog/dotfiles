@@ -14,19 +14,30 @@ bindkey -v
 bindkey -s '^r' 'ranger^M'
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/voidmonkey/.zshrc'
-
+zstyle :compinstall filename '/home/archmonkey/.zshrc'
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+use_color=true
 autoload -Uz compinit
 compinit
+_comp_options+=(globdots)		# Include hidden files.
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
 # End of lines added by compinstall
 
 export EDITOR='nvim'
-export BROWSER='firefox'
+export BROWSER='brave'
 alias e='emacsclient -c'
 alias xi='sudo xbps-install'
 alias xq='xbps-query'
+alias p='sudo pacman'
 alias g='g++ -std=c++17'
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+alias ls='ls --color=auto'
+alias ll='exa -l --icons'
+#source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 if command -v theme.sh > /dev/null; then
 	[ -e ~/.theme_history ] && theme.sh "$(theme.sh -l|tail -n1)"
@@ -50,8 +61,9 @@ if command -v theme.sh > /dev/null; then
 	alias thd='theme.sh --dark -i'
 fi
 
-export TERM=xterm-256color-italic
+#export TERM=xterm-256color-italic
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+alias dotfiles='/usr/bin/git --git-dir=/home/archmonkey/.dotfiles/ --work-tree=/home/archmonkey'
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-alias dotfiles='/usr/bin/git --git-dir=/home/voidmonkey/.dotfiles/ --work-tree=/home/voidmonkey'

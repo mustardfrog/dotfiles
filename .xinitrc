@@ -1,8 +1,8 @@
-feh Pictures/greenMinimal.jpg --bg-scale
+feh Pictures/road.jpg --bg-fill
 setxkbmap dvorak
-xrdb --merge ~/.Xresources
-slstatus &
+ibus-daemon -rdx &
+# xrdb --merge ~/.Xresources
 picom &
 polybar example &
-emacs --daemon &
+# emacs --daemon &
 exec bspwm
