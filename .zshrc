@@ -9,7 +9,7 @@ fi
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-bindkey -v
+bindkey -e
 
 bindkey -s '^r' 'ranger^M'
 # End of lines configured by zsh-newuser-install
@@ -60,6 +60,13 @@ if command -v theme.sh > /dev/null; then
 	# Interactively load a dark theme
 	alias thd='theme.sh --dark -i'
 fi
+
+#LFCD="$GOPATH/src/github.com/gokcehan/lf/etc/lfcd.sh"  # source
+LFCD="$HOME/.config/lf/lfcd.sh"                                #  pre-built binary, make sure to use absolute path
+if [ -f "$LFCD" ]; then
+    source "$LFCD"
+fi
+export PATH=.local/bin:$PATH
 
 #export TERM=xterm-256color-italic
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
