@@ -1,9 +1,0 @@
-[submodule "dwm"]
-	path = dwm
-	url = https://github.com/mustardfrog/dwm
-[submodule "slstatus"]
-	path = slstatus
-	url = https://github.com/mustardfrog/slstatus
-[submodule "st"]
-	path = st
-	url = https://github.com/mustardfrog/st
