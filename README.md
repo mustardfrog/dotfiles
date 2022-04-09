@@ -1,7 +1,7 @@
 # Dotfiles
 
 ![lfub](https://raw.githubusercontent.com/mustardfrog/dotfiles/main/images/lfub.png)
-> Check out [Luke](https://www.youtube.com/watch?v=XOMj7JSGR78&t=848si "Luke's video") for image preview in lf
+> Check out [Luke's Video](https://www.youtube.com/watch?v=XOMj7JSGR78&t=848si "Luke's video") for image preview in lf
 
 ### Install some crap
 
