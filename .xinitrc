@@ -2,7 +2,8 @@ feh Pictures/road.jpg --bg-fill
 setxkbmap dvorak
 ibus-daemon -rdx &
 # xrdb --merge ~/.Xresources
-picom &
-polybar example &
+picom --experimental-backend &
+#polybar example &
 # emacs --daemon &
-exec bspwm
+#xrandr --output VGA-0 --auto --left-of HDMI-0
+exec dwm
