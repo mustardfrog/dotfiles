@@ -1,51 +1,58 @@
-# Colors (Tomorrow Night Bright)
+
+# Colors (Iceberg Dark)
 colors:
   # Default colors
   primary:
-    background: '#000000'
-    foreground: '#eaeaea'
+    background: '#161821'
+    foreground: '#d2d4de'
 
   # Normal colors
   normal:
-    black:   '#000000'
-    red:     '#d54e53'
-    green:   '#b9ca4a'
-    yellow:  '#e6c547'
-    blue:    '#7aa6da'
-    magenta: '#c397d8'
-    cyan:    '#70c0ba'
-    white:   '#424242'
+    black:   '#161821'
+    red:     '#e27878'
+    green:   '#b4be82'
+    yellow:  '#e2a478'
+    blue:    '#84a0c6'
+    magenta: '#a093c7'
+    cyan:    '#89b8c2'
+    white:   '#c6c8d1'
 
   # Bright colors
   bright:
-    black:   '#666666'
-    red:     '#ff3334'
-    green:   '#9ec400'
-    yellow:  '#e7c547'
-    blue:    '#7aa6da'
-    magenta: '#b77ee0'
-    cyan:    '#54ced6'
-    white:   '#2a2a2a'
+    black:   '#6b7089'
+    red:     '#e98989'
+    green:   '#c0ca8e'
+    yellow:  '#e9b189'
+    blue:    '#91acd1'
+    magenta: '#ada0d3'
+    cyan:    '#95c4ce'
+    white:   '#d2d4de'
 
 
 font:
   normal:
-    family: Jetbrains Mono
+    family: Ubuntu Mono 
     style: Regular
 
   bold:
-    family: Jetbrains Mono
+    family: Ubuntu Mono    
     style: Bold
 
   italic:
-    family: Jetbrains Mono
+    family: Ubuntu Mono    
     style: Italic
 
   bold_italic:
-    family: Jetbrains Mono
+    family: Ubuntu Mono    
     style: Bold Italic
 
-  size: 12
+  size: 14
+  glyph_offset:
+    x: 0
+    y: 0
+  offset: 
+    x: 0
+    y: 0
 
-background_opacity: 0.8
-
+window:
+  opacity: 0.7

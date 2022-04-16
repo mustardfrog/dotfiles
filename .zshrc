@@ -11,7 +11,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 bindkey -e
 
-bindkey -s '^r' 'ranger^M'
+bindkey -s '^r' 'lfub^M'
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/archmonkey/.zshrc'
@@ -39,27 +39,27 @@ alias ls='ls --color=auto'
 alias ll='exa -l --icons'
 #source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-if command -v theme.sh > /dev/null; then
-	[ -e ~/.theme_history ] && theme.sh "$(theme.sh -l|tail -n1)"
+#if command -v theme.sh > /dev/null; then
+	#[ -e ~/.theme_history ] && theme.sh "$(theme.sh -l|tail -n1)"
 
-	# Optional
+	## Optional
 
-	# Bind C-o to the last theme.
-	last_theme() {
-		theme.sh "$(theme.sh -l|tail -n2|head -n1)"
-	}
+	## Bind C-o to the last theme.
+	#last_theme() {
+		#theme.sh "$(theme.sh -l|tail -n2|head -n1)"
+	#}
 
-	zle -N last_theme
-	bindkey '^O' last_theme
+	#zle -N last_theme
+	#bindkey '^O' last_theme
 
-	alias th='theme.sh -i'
+	#alias th='theme.sh -i'
 
-	# Interactively load a light theme
-	alias thl='theme.sh --light -i'
+	## Interactively load a light theme
+	#alias thl='theme.sh --light -i'
 
-	# Interactively load a dark theme
-	alias thd='theme.sh --dark -i'
-fi
+	## Interactively load a dark theme
+	#alias thd='theme.sh --dark -i'
+#fi
 
 #LFCD="$GOPATH/src/github.com/gokcehan/lf/etc/lfcd.sh"  # source
 LFCD="$HOME/.config/lf/lfcd.sh"                                #  pre-built binary, make sure to use absolute path
