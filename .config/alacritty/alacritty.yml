@@ -1,58 +1,130 @@
-
-# Colors (Iceberg Dark)
-colors:
+# Colors (Tomorrow Night Bright)
   # Default colors
+  # Colors (Tomorrow Night Bright)
+schemes: 
+  tomorrow_night: &tomorrow
+    # colors:
+    # Default colors
+    primary:
+      background: '#000000'
+      foreground: '#eaeaea'
+
+    # Normal colors
+    normal:
+      black:   '#000000'
+      red:     '#d54e53'
+      green:   '#b9ca4a'
+      yellow:  '#e6c547'
+      blue:    '#7aa6da'
+      magenta: '#c397d8'
+      cyan:    '#70c0ba'
+      white:   '#424242'
+
+    # Bright colors
+    bright:
+      black:   '#666666'
+      red:     '#ff3334'
+      green:   '#9ec400'
+      yellow:  '#e7c547'
+      blue:    '#7aa6da'
+      magenta: '#b77ee0'
+      cyan:    '#54ced6'
+      white:   '#2a2a2a'
+
+  catppuccin: &catppuccin
+    primary:
+      background: '0x1E1D2F'
+      foreground: '0xD9E0EE'
+
+    # Colors the cursor will use if `custom_cursor_colors` is true
+    cursor:
+      text: '0x1E1D2F'
+      cursor: '0xF5E0DC'
+
+    # Normal colors
+    normal:
+      black:   '0x6E6C7E'
+      red:     '0xF28FAD'
+      green:   '0xABE9B3'
+      yellow:  '0xFAE3B0'
+      blue:    '0x96CDFB'
+      magenta: '0xF5C2E7'
+      cyan:    '0x89DCEB'
+      white:   '0xD9E0EE'
+
+    # Bright colors
+    bright:
+      black:   '0x988BA2'
+      red:     '0xF28FAD'
+      green:   '0xABE9B3'
+      yellow:  '0xFAE3B0'
+      blue:    '0x96CDFB'
+      magenta: '0xF5C2E7'
+      cyan:    '0x89DCEB'
+      white:   '0xD9E0EE'
+
+    indexed_colors:
+      - { index: 16, color: '0xF8BD96' }
+      - { index: 17, color: '0xF5E0DC' }
+
+
+        # Colors (Nightfly)
+nightfly: &nightfly
+   # Default colors
   primary:
-    background: '#161821'
-    foreground: '#d2d4de'
+     background: '#011627'
+     foreground: '#acb4c2'
 
-  # Normal colors
+  cursor:
+    text: '#fafafa'
+    cursor: '#9ca1aa'
+
+  selection:
+    text: '#080808'
+    background: '#b2ceee'
+
+   # Normal colors
   normal:
-    black:   '#161821'
-    red:     '#e27878'
-    green:   '#b4be82'
-    yellow:  '#e2a478'
-    blue:    '#84a0c6'
-    magenta: '#a093c7'
-    cyan:    '#89b8c2'
-    white:   '#c6c8d1'
+    black:   '#1d3b53'
+    red:     '#fc514e'
+    green:   '#a1cd5e'
+    yellow:  '#e3d18a'
+    blue:    '#82aaff'
+    magenta: '#c792ea'
+    cyan:    '#7fdbca'
+    white:   '#a1aab8'
 
-  # Bright colors
+   # Bright colors
   bright:
-    black:   '#6b7089'
-    red:     '#e98989'
-    green:   '#c0ca8e'
-    yellow:  '#e9b189'
-    blue:    '#91acd1'
-    magenta: '#ada0d3'
-    cyan:    '#95c4ce'
-    white:   '#d2d4de'
-
+    black:   '#7c8f8f'
+    red:     '#ff5874'
+    green:   '#21c7a8'
+    yellow:  '#ecc48d'
+    blue:    '#82aaff'
+    magenta: '#ae81ff'
+    cyan:    '#7fdbca'
+    white:   '#d6deeb'
+colors: *tomorrow
 
 font:
   normal:
-    family: Ubuntu Mono 
+    family: Monospace
     style: Regular
 
   bold:
-    family: Ubuntu Mono    
+    family: Monospace
     style: Bold
 
   italic:
-    family: Ubuntu Mono    
+    family: Monospace
     style: Italic
 
   bold_italic:
-    family: Ubuntu Mono    
+    family: Monospace
     style: Bold Italic
 
-  size: 14
-  glyph_offset:
-    x: 0
-    y: 0
-  offset: 
-    x: 0
-    y: 0
+  size: 15
 
 window:
-  opacity: 0.7
+  opacity: 0.8
+    #decoration: none

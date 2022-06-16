@@ -29,7 +29,7 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 # End of lines added by compinstall
 
 export EDITOR='nvim'
-export BROWSER='brave'
+export BROWSER='firefox'
 alias e='emacsclient -c'
 alias xi='sudo xbps-install'
 alias xq='xbps-query'
