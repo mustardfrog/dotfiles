@@ -37,7 +37,13 @@ export BROWSER='firefox'
 export PATH=$PATH:~/.local/bin
 export DENO_INSTALL="/home/endevour/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+
+export GOPATH=$HOME/go
+export GOROOT=/usr/lib/go
+export PATH=$PATH:$GOPATH
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+#export PATH=$PATH:$(dirname $(go list -f '{{.Target}}' .))
 #export PATH=~/.local/bin:$PATH
 #export GOPATH=\$HOME/go
 #export PATH=$PATH:$GOPATH/bin
@@ -45,10 +51,10 @@ export PATH=$PATH:/usr/local/go/bin
 eval "$(starship init zsh)"
 
 #LFCD="$GOPATH/src/github.com/gokcehan/lf/etc/lfcd.sh"  # source
-LFCD="$HOME/.config/lf/lfcd.sh"                                #  pre-built binary, make sure to use absolute path
-if [ -f "$LFCD" ]; then
-    source "$LFCD"
-fi
+#LFCD="$HOME/.config/lf/lfcd.sh"                                #  pre-built binary, make sure to use absolute path
+#if [ -f "$LFCD" ]; then
+    #source "$LFCD"
+#fi
 
 #export TERM=xterm-256color-italic
 #alias dotfiles='/usr/bin/git --git-dir=/home/archmonkey/.dotfiles/ --work-tree=/home/archmonkey'

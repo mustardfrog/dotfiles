@@ -51,8 +51,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec brightnessctl  set +10% # increase screen brightness
-bindsym XF86MonBrightnessDown exec brightnessctl set 10%-# decrease screen brightness
+bindsym XF86MonBrightnessUp exec brightnessctl  set +6% # increase screen brightness
+bindsym XF86MonBrightnessDown exec brightnessctl set 6%-# decrease screen brightness
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -67,6 +67,8 @@ floating_modifier $mod
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+T exec kitty
+bindsym $mod+n workspace next
+#bindsym $mod+p workspace prev
 
 # kill focused window
 bindsym $mod+Shift+w kill
@@ -130,8 +132,6 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -167,6 +167,18 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+# move focused container to workspace
+#bindsym $mod+F1 move container to workspace number $ws1
+#bindsym $mod+F2 move container to workspace number $ws2
+#bindsym $mod+F3 move container to workspace number $ws3
+#bindsym $mod+F4 move container to workspace number $ws4
+#bindsym $mod+F5 move container to workspace number $ws5
+#bindsym $mod+F6 move container to workspace number $ws6
+#bindsym $mod+F7 move container to workspace number $ws7
+#bindsym $mod+F8 move container to workspace number $ws8
+#bindsym $mod+F9 move container to workspace number $ws9
+#bindsym $mod+0 move container to workspace number $ws10
+
 # reload the configuration file
 bindsym $mod+Shift+R reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -200,24 +212,35 @@ mode "resize" {
 }
 
 bindsym $mod+p mode "resize"
+bindsym $mod+Shift+S exec slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'grim_%Y-%m-%d-%H%M%S.png')
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status --transparency
+        #status_command i3status --transparency
+	status_command i3status 
 }
 
-input * {
-    xkb_layout "us"
-    xkb_variant "dvorak"
+#input * {
+    #xkb_layout "us"
+    #xkb_variant "dvorak"
+#}
+input type:keyboard {
+    xkb_layout us(dvp),us(dvorak),
+    xkb_options grp:ctrls_toggle
+    #xkb_options grp:rctrl_switch
+    #rctrl_switch
 }
 
 input type:touchpad {
     tap enabled
     natural_scroll enabled
+    #drag enabled
+    middle_emulation enabled
 }
 
-output "*" bg /home/manjarobox/Pictures/Wallpapers/pixelcar.png fill
+output "*" bg ~/Pictures/wallpapers/breakingbad.jpg fill
 
 #set $lock swaylock -c 550000
 #exec swayidle -w \
@@ -227,10 +250,12 @@ output "*" bg /home/manjarobox/Pictures/Wallpapers/pixelcar.png fill
     #before-sleep $lock
 
 exec swayidle -w \
-    timeout 300 'swaylock -f -c 000000 -i ~/Pictures/Wallpapers/stream.jpg -s fill' \
+    timeout 300 'swaylock -f -i ~/Pictures/wallpapers/trash.jpg fill' \
     timeout 400 'swaymsg "output * dpms off"' \
-         resume 'swaymsg "output * dpms on"' \
+     resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f -c 000000'
 
 #<colorclass> <border> <background> <text> <indicator> <child_border>
 client.focused #ff748c #ff8da1  #000000  #ff8da1
+seat seat0 xcursor_theme Qogir 25
+#exec_always fcitx5 -d --replace

@@ -16,14 +16,19 @@
 #    called directly instead of normal lf.
 
 # Basic vars
-set shellopts '-eu'
+set previewer ctpv
+set cleaner ctpvclear
+&ctpv -s $id
+cmd on-quit $ctpv -e $id
+
+#set shellopts '-eu'
 set ifs "\n"
 set scrolloff 10
-set icons
+# set icons
 set period 1
 set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
-set cleaner '~/.config/lf/cleaner'
-set previewer '~/.config/lf/scope'
+#set cleaner '~/.config/lf/cleaner'
+#set previewer '~/.config/lf/scope'
 
 # cmds/functions
 cmd open ${{
@@ -126,6 +131,7 @@ map V push :!nvim<space>
 map W $setsid -f $TERMINAL >/dev/null 2>&1
 
 map Y $printf "%s" "$fx" | xclip -selection clipboard
+
 
 # Source Bookmarks
 #source "~/.config/lf/shortcutrc"
