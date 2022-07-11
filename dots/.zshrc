@@ -36,6 +36,7 @@ export EDITOR='nvim'
 export BROWSER='firefox'
 export PATH=$PATH:~/.local/bin
 export DENO_INSTALL="/home/endevour/.deno"
+export DENO_INSTALL=$HOME/.deno
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 export GOPATH=$HOME/go
@@ -50,14 +51,7 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 eval "$(starship init zsh)"
 
-#LFCD="$GOPATH/src/github.com/gokcehan/lf/etc/lfcd.sh"  # source
-#LFCD="$HOME/.config/lf/lfcd.sh"                                #  pre-built binary, make sure to use absolute path
-#if [ -f "$LFCD" ]; then
-    #source "$LFCD"
-#fi
-
 #export TERM=xterm-256color-italic
 #alias dotfiles='/usr/bin/git --git-dir=/home/archmonkey/.dotfiles/ --work-tree=/home/archmonkey'
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
