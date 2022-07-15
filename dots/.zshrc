@@ -29,7 +29,7 @@ alias xq='xbps-query'
 alias p='sudo pacman'
 alias g='g++ -std=c++17'
 alias ls='ls --color=auto'
-alias ll='exa -l --icons'
+alias ll='exa --icons'
 
 
 export EDITOR='nvim'
@@ -55,3 +55,5 @@ eval "$(starship init zsh)"
 #alias dotfiles='/usr/bin/git --git-dir=/home/archmonkey/.dotfiles/ --work-tree=/home/archmonkey'
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[ -f "/home/endevour/.ghcup/env" ] && source "/home/endevour/.ghcup/env" # ghcup-env
