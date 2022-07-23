@@ -16,7 +16,7 @@ set $mod4 Mod4
 # is used in the bar {} block below.
 font pango:Jetbrains Mono 10
 
-default_border pixel 1
+default_border pixel 3
 hide_edge_borders vertical
 default_floating_border pixel 1
 
@@ -66,8 +66,9 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec foot
 bindsym $mod+Shift+T exec kitty
+bindsym $mod4+n exec nautilus
 bindsym $mod+n workspace next
 bindsym $mod+Shift+b workspace prev
 
@@ -129,6 +130,8 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+
+
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -207,7 +210,7 @@ bindsym $mod+Shift+S exec slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'gr
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        #status_command i3status --transparency
+    #status_command i3status --transparency
     mode hide
     status_command waybar
 }
@@ -221,7 +224,7 @@ client.focused #672934 #672934  #cab3b6  #ff8da1
 #seat seat0 xcursor_theme Qogir 25
 
 input type:keyboard {
-    xkb_layout us(dvorak),us(dvp),
+    xkb_layout us(dvorak)
     xkb_options grp:ctrls_toggle
     #xkb_options grp:rctrl_switch
 }
@@ -233,14 +236,7 @@ input type:touchpad {
     middle_emulation enabled
 }
 
-output "*" bg ~/Pictures/wallpapers/sakura.jpg fill
-
-#set $lock swaylock -c 550000
-#exec swayidle -w \
-    #timeout 400 $lock \
-    #timeout 570 'swaymsg "output * dpms off"' \
-    #resume 'swaymsg "output * dpms on"' \
-    #before-sleep $lock
+output "*" bg ~/Pictures/wallpapers/japgirl.jpg fill
 
 exec swayidle -w \
     timeout 300 'swaylock -f -i ~/Pictures/wallpapers/trash.jpg fill' \

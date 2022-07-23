@@ -46,14 +46,12 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 #export PATH=$PATH:$(dirname $(go list -f '{{.Target}}' .))
 #export PATH=~/.local/bin:$PATH
-#export GOPATH=\$HOME/go
-#export PATH=$PATH:$GOPATH/bin
 
 eval "$(starship init zsh)"
 
 #export TERM=xterm-256color-italic
 #alias dotfiles='/usr/bin/git --git-dir=/home/archmonkey/.dotfiles/ --work-tree=/home/archmonkey'
+[ -f "/home/endevour/.ghcup/env" ] && source "/home/endevour/.ghcup/env" # ghcup-env
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-[ -f "/home/endevour/.ghcup/env" ] && source "/home/endevour/.ghcup/env" # ghcup-env
