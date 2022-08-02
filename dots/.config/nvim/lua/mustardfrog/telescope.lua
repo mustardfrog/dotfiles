@@ -1,6 +1,10 @@
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true }
 
+telescope = require('telescope')
+builtin = require('telescope.builtin')
+actions = require('telescope.actions')
+
 require('telescope').setup{
 defaults = {
     -- Default configuration for telescope goes here:
@@ -24,10 +28,33 @@ defaults = {
     -- Default configuration for builtin pickers goes here:
   },
   extensions = {
-  }
+  },
 }
---    nnoremap <leader>ff <cmd>Telescope find_files<cr>
---    nnoremap <leader>fg <cmd>Telescope live_grep<cr>
---    nnoremap <leader>fb <cmd>Telescope buffers<cr>
---    nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+local M = {}
+
+M.search_wallpapers = function() 
+    builtin.find_files({
+        prompt_title = "< Wallpapers >",
+        cwd = "~/Pictures/wallpapers/",
+        find_command = {"rg", "--files" },
+        previewer = false,
+        follow = false,
+        attach_mappings = function(bufnr, _)
+			actions.select_default:replace(function()
+				actions.close(bufnr)
+
+				local selection = require("telescope.actions.state").get_selected_entry(bufnr)
+
+                local cmd = "swaymsg output \'*\' bg " .. selection.cwd .. "/" .. selection.value .. " fill"
+                print(cmd)
+
+				if selection then
+					vim.fn.system(cmd)
+				end
+			end)
+			return true
+		end,
+    })
+end
+return M

@@ -512,5 +512,5 @@ font:
   size: 17
 
 window:
-  opacity: 0.7
+  opacity: 1
     #decoration: none

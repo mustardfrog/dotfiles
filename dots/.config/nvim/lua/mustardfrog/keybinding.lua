@@ -1,15 +1,3 @@
-vim.cmd [[
-    let g:user_emmet_leader_key = "<C-f>"
-    vmap <leader>y y:call system("wl-copy", @")<CR>:call system("wl-copy", @")<CR>
-    "vmap <C-\> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
-    "nnoremap Y y$
-
-    " Use <Tab> and <S-Tab> to navigate through popup menu
-    "inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-    "inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-]]
-
-
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
@@ -51,10 +39,28 @@ vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>', opts )
 vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', opts )
 vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<cr>', opts )
 vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', opts )
+vim.keymap.set('n', '<leader>va', ':lua require(\'mustardfrog.telescope\').search_wallpapers()<cr>')
+
 vim.api.nvim_set_keymap('n', '<C-t>', ':Lexplore<CR>', opts)
--- Expr mappings
-vim.keymap.set('i', '<C-n>', function()
- return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"
-end, { expr = true })
 
 --vim.api.nvim_set_keymap('v', '<leader>yy', '<cmd>y:call system("wl-copy", @")<cr>:call system("wl-copy", @")<cr>', {noremap = false, silent = false})
+vim.cmd [[
+    let g:user_emmet_leader_key = "<C-f>"
+    vmap <leader>y y:call system("wl-copy", @")<CR>:call system("wl-copy", @")<CR>
+    "vmap <C-\> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
+    "nnoremap Y y$
+
+    " Use <Tab> and <S-Tab> to navigate through popup menu
+    "inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+    "inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+    nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
+]]
+require'lspconfig'.elixirls.setup{
+    -- Unix
+    on_attach = on_attach,
+    cmd = { "/usr/lib/elixir-ls/language_server.sh" };
+}
+  require('lspconfig').tsserver.setup{
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+}
