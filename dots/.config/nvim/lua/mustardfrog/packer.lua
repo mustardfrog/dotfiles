@@ -32,7 +32,7 @@ return require('packer').startup(function()
     use 'sbdchd/neoformat'
 
     --use 'rakr/vim-one'
-    --use 'morhetz/gruvbox'
+    use 'morhetz/gruvbox'
     --use 'mfussenegger/nvim-dap'
     --use 'rcarriga/nvim-dap-ui'
     --use 'Pocco81/DAPInstall.nvim'
@@ -42,7 +42,7 @@ return require('packer').startup(function()
     --use 'ayu-theme/ayu-vim'
     --use {'pineapplegiant/spaceduck',  branch = 'main' }
     --use {'dracula/vim',  as = 'dracula' }
-    use {'catppuccin/nvim', as = 'catppuccin'}
+    --use {'catppuccin/nvim', as = 'catppuccin'}
     --use ('michaelb/sniprun', {['do']= 'bash install.sh'})
     --use ('tzachar/cmp-tabnine', { ['do'] = './install.sh' })
     --use 'windwp/nvim-autopairs'

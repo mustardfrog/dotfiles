@@ -46,7 +46,8 @@ M.search_wallpapers = function()
 
 				local selection = require("telescope.actions.state").get_selected_entry(bufnr)
 
-                local cmd = "swaymsg output \'*\' bg " .. selection.cwd .. "/" .. selection.value .. " fill"
+                --local cmd = "swaymsg output \'*\' bg " .. selection.cwd .. "/" .. selection.value .. " fill"
+                local cmd = "feh " .. selection.cwd .. "/" .. selection.value .. " --bg-fill"
                 print(cmd)
 
 				if selection then

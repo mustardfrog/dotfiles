@@ -43,10 +43,10 @@
         haskell = {  formattingProvider = "brittany" ,"--indent=4" }
     }
 }
-    require'lspconfig'.elixirls.setup{
+    --require'lspconfig'.elixirls.setup{
         -- Unix
-        cmd = { "/usr/lib/elixir-ls/language_server.sh" };
-    }
+        --cmd = { "/home/chaeng/.nix-profile/bin/elixir-ls" };
+    --}
   --require('nvim-autopairs').setup{}
   --cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
     --require('rust-tools').setup({})

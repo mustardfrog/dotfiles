@@ -1,6 +1,7 @@
+--require 'nvim-treesitter.install'.compilers = { 'clang++'}
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ignore_install = { "kotlin", "java", "zig"  }, -- List of parsers to ignore installing
+  ignore_install = { "kotlin", "java", "scala", "groovy", "supercollider", "cuda", "norg", "c_sharp", "perl", "clojure", "swift", "julia", "v", "verilog", "tlaplus", "rnoweb"  }, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension
     disable = {},  -- list of language that will be disabled

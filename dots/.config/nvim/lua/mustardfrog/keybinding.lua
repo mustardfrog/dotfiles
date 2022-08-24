@@ -20,7 +20,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
   vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-  vim.keymap.set('n', '<space>wl', function()
+  vim.keymap.set('n', '<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, bufopts)
   vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
@@ -46,8 +46,8 @@ vim.api.nvim_set_keymap('n', '<C-t>', ':Lexplore<CR>', opts)
 --vim.api.nvim_set_keymap('v', '<leader>yy', '<cmd>y:call system("wl-copy", @")<cr>:call system("wl-copy", @")<cr>', {noremap = false, silent = false})
 vim.cmd [[
     let g:user_emmet_leader_key = "<C-f>"
-    vmap <leader>y y:call system("wl-copy", @")<CR>:call system("wl-copy", @")<CR>
-    "vmap <C-\> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
+    "vmap <leader>y y:call system("wl-copy", @")<CR>:call system("wl-copy", @")<CR>
+    vmap <leader>y y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
     "nnoremap Y y$
 
     " Use <Tab> and <S-Tab> to navigate through popup menu
@@ -56,11 +56,11 @@ vim.cmd [[
     nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
     nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
 ]]
-require'lspconfig'.elixirls.setup{
-    -- Unix
-    on_attach = on_attach,
-    cmd = { "/usr/lib/elixir-ls/language_server.sh" };
-}
+--require'lspconfig'.elixirls.setup{
+    ---- Unix
+    --on_attach = on_attach,
+    --cmd = { "/usr/lib/elixir-ls/language_server.sh" };
+--}
   require('lspconfig').tsserver.setup{
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
 }

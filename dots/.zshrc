@@ -23,6 +23,7 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
+alias up="sudo apt-get update"
 alias e='emacsclient -c'
 alias xi='sudo xbps-install'
 alias xq='xbps-query'
@@ -35,9 +36,11 @@ alias ll='exa --icons'
 export EDITOR='nvim'
 export BROWSER='firefox'
 export PATH=$PATH:~/.local/bin
-export DENO_INSTALL="/home/endevour/.deno"
+export PATH=$PATH:~/.local/share
+export DENO_INSTALL="/home/chaeng/.deno"
 export DENO_INSTALL=$HOME/.deno
 export PATH="$DENO_INSTALL/bin:$PATH"
+export PATH=/home/chaeng/.nimble/bin:$PATH
 
 export GOPATH=$HOME/go
 export GOROOT=/usr/lib/go
@@ -52,6 +55,6 @@ eval "$(starship init zsh)"
 #export TERM=xterm-256color-italic
 #alias dotfiles='/usr/bin/git --git-dir=/home/archmonkey/.dotfiles/ --work-tree=/home/archmonkey'
 [ -f "/home/endevour/.ghcup/env" ] && source "/home/endevour/.ghcup/env" # ghcup-env
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+#source /usr/share/zsh/autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
