@@ -50,5 +50,6 @@ vim.cmd[[
     " Enable tab to spaces conversion
     "let g:neoformat_basic_format_retab = 1
     let g:neoformat_enabled_haskell = ['brittany']
+    let g:neoformat_enabled_c = ['clangformat']
 ]]
 
