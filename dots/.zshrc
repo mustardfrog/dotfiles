@@ -41,6 +41,7 @@ export DENO_INSTALL="/home/chaeng/.deno"
 export DENO_INSTALL=$HOME/.deno
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH=/home/chaeng/.nimble/bin:$PATH
+export PATH=$PATH:/usr/local/bin/zig
 
 export GOPATH=$HOME/go
 export GOROOT=/usr/lib/go
@@ -51,10 +52,11 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 #export PATH=~/.local/bin:$PATH
 
 eval "$(starship init zsh)"
+export TERM=xterm-256color
 
 #export TERM=xterm-256color-italic
 #alias dotfiles='/usr/bin/git --git-dir=/home/archmonkey/.dotfiles/ --work-tree=/home/archmonkey'
-[ -f "/home/endevour/.ghcup/env" ] && source "/home/endevour/.ghcup/env" # ghcup-env
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 #source /usr/share/zsh/autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
