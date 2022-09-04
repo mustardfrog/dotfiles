@@ -14,6 +14,7 @@ vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', opts )
 vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<cr>', opts )
 vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', opts )
 vim.keymap.set('n', '<leader>va', ':lua require(\'mustardfrog.telescope\').search_wallpapers()<cr>')
+vim.keymap.set('n', '<leader>vga', ':lua require(\'mustardfrog.telescope\').search_gifs()<cr>')
 
 vim.api.nvim_set_keymap('n', '<C-t>', ':Lexplore<CR>', opts)
 vim.keymap.set('n', '<space>F', ":Neoformat<CR>", bufopts)

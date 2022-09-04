@@ -44,6 +44,7 @@ M.search_wallpapers = function()
 			actions.select_default:replace(function()
 				actions.close(bufnr)
 
+                local output = vim.fn.system("killall bash")
 				local selection = require("telescope.actions.state").get_selected_entry(bufnr)
 
                 --local cmd = "swaymsg output \'*\' bg " .. selection.cwd .. "/" .. selection.value .. " fill"
@@ -51,6 +52,34 @@ M.search_wallpapers = function()
                 print(cmd)
 
 				if selection then
+					vim.fn.system(cmd)
+				end
+			end)
+			return true
+		end,
+    })
+end
+
+M.search_gifs = function() 
+    builtin.find_files({
+        prompt_title = "< GIFS WALLPAPERS >",
+        cwd = "~/Pictures/wallpapers/gifs/",
+        find_command = {"rg", "--files" },
+        previewer = false,
+        follow = false,
+        attach_mappings = function(bufnr, _)
+			actions.select_default:replace(function()
+				actions.close(bufnr)
+
+                local kill = vim.fn.system("killall bash")
+				local selection = require("telescope.actions.state").get_selected_entry(bufnr)
+
+                --local cmd = "swaymsg output \'*\' bg " .. selection.cwd .. "/" .. selection.value .. " fill"
+                local cmd = "back4.sh 0.010 " .. selection.cwd .. selection.value .. " &"
+                print(cmd)
+
+				if selection then
+					vim.fn.system(kill)
 					vim.fn.system(cmd)
 				end
 			end)
