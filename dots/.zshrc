@@ -42,6 +42,7 @@ export DENO_INSTALL=$HOME/.deno
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH=/home/chaeng/.nimble/bin:$PATH
 export PATH=$PATH:/usr/local/bin/zig
+export PATH=$PATH:$HOME/fun/emsdk/emsdk_env.sh
 
 export GOPATH=$HOME/go
 export GOROOT=/usr/lib/go
