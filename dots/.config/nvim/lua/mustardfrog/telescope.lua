@@ -16,7 +16,7 @@ defaults = {
     }
   },
   file_ignore_patterns = { 
-      "./node_modules" 
+      "./node_modules/*" 
   },
   pickers = {
       --find_files = {
@@ -87,4 +87,5 @@ M.search_gifs = function()
 		end,
     })
 end
+
 return M

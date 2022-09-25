@@ -3,7 +3,7 @@ local nvim_lsp = require'lspconfig'
 local opts = {
 tools = { -- rust-tools options
     autoSetHints = true,
-    hover_with_actions = true,
+    --hover_with_actions = true,
     inlay_hints = {
         show_parameter_hints = true,
         parameter_hints_prefix = "",
@@ -54,7 +54,7 @@ tools = { -- rust-tools options
     },
 }
 
---require('rust-tools').setup(opts)
+require('rust-tools').setup(opts)
 
 --" LSP config (the mappings used in the default file don't quite work right)
 --nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>

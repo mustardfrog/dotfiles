@@ -24,19 +24,21 @@ vim.cmd [[
     let g:user_emmet_leader_key = "<C-f>"
     "vmap <leader>y y:call system("wl-copy", @")<CR>:call system("wl-copy", @")<CR>
     vmap <leader>y y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
-    "nnoremap Y y$
-
+    nnoremap Y y$
+    inoremap <C-c> <ESC>
     " Use <Tab> and <S-Tab> to navigate through popup menu
     "inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
     "inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
     nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
     nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
+
+    nnoremap <buffer> <F4> :GodotRunLast<CR>
+    nnoremap <buffer> <F5> :GodotRun<CR>
+    nnoremap <buffer> <F6> :GodotRunCurrent<CR>
+    nnoremap <buffer> <F7> :GodotRunFZF<CR>
 ]]
 --require'lspconfig'.elixirls.setup{
     ---- Unix
     --on_attach = on_attach,
     --cmd = { "/usr/lib/elixir-ls/language_server.sh" };
 --}
-  require('lspconfig').tsserver.setup{
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-}

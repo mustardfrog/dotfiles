@@ -9,6 +9,7 @@ return require('packer').startup(function()
     use 'folke/tokyonight.nvim'
 
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use 'nvim-treesitter/nvim-treesitter-context'
 
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/cmp-nvim-lsp'
@@ -19,7 +20,8 @@ return require('packer').startup(function()
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
 
-    --use 'simrat39/rust-tools.nvim'
+    use 'simrat39/rust-tools.nvim'
+    use 'habamax/vim-godot'
 
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-lua/popup.nvim'
@@ -31,7 +33,7 @@ return require('packer').startup(function()
     use 'mattn/emmet-vim'
     use 'sbdchd/neoformat'
 
-    --use 'rakr/vim-one'
+    use 'rakr/vim-one'
     use 'morhetz/gruvbox'
     --use 'mfussenegger/nvim-dap'
     --use 'rcarriga/nvim-dap-ui'
@@ -39,10 +41,10 @@ return require('packer').startup(function()
     --use 'bluz71/vim-nightfly-guicolors'
     --use 'whatyouhide/vim-gotham'
     --use 'tomasr/molokai'
-    --use 'ayu-theme/ayu-vim'
-    --use {'pineapplegiant/spaceduck',  branch = 'main' }
+    use 'ayu-theme/ayu-vim'
+    use {'pineapplegiant/spaceduck',  branch = 'main' }
     --use {'dracula/vim',  as = 'dracula' }
-    --use {'catppuccin/nvim', as = 'catppuccin'}
+    use {'catppuccin/nvim', as = 'catppuccin'}
     --use ('michaelb/sniprun', {['do']= 'bash install.sh'})
     --use ('tzachar/cmp-tabnine', { ['do'] = './install.sh' })
     --use 'windwp/nvim-autopairs'

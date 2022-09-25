@@ -31,7 +31,7 @@
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-    local servers  = {"rust_analyzer", "clangd", "tsserver", "pyright", "gopls"}
+    local servers  = {"tsserver", "rust_analyzer", "clangd", "pyright", "gopls", "gdscript"}
 
     for _, server in ipairs(servers) do 
 
@@ -62,6 +62,9 @@
         require('lspconfig')[server].setup { capabilities = capabilities, on_attach = on_attach}
     end
   
+    --require('lspconfig').tsserver.setup{}
+        --capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    --}
   require('lspconfig').hls.setup{
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     settings = {
