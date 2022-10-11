@@ -4,9 +4,32 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
+    -- cololrschemes
+    use 'folke/tokyonight.nvim'
+    --use 'B4mbus/oxocarbon-lua.nvim'
+    use {'catppuccin/nvim', as = 'catppuccin'}
+    use "EdenEast/nightfox.nvim" 
+    --use 'shaunsingh/nord.nvim'
+    --use 'rakr/vim-one'
+    use 'morhetz/gruvbox'
+    use 'sainnhe/gruvbox-material'
+    use 'sainnhe/everforest'
+
+    --use 'ayu-theme/ayu-vim'
+    --use {'pineapplegiant/spaceduck',  branch = 'main' }
+
+    --use {'dracula/vim',  as = 'dracula' }
+
   -- Packer can manage itself
     use 'wbthomason/packer.nvim'
-    use 'folke/tokyonight.nvim'
+
+    --use {
+        --'kyazdani42/nvim-tree.lua',
+        --requires = {
+            --'kyazdani42/nvim-web-devicons', -- optional, for file icons
+        --},
+        ----tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    --}
 
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use 'nvim-treesitter/nvim-treesitter-context'
@@ -21,7 +44,7 @@ return require('packer').startup(function()
     use 'hrsh7th/vim-vsnip'
 
     use 'simrat39/rust-tools.nvim'
-    use 'habamax/vim-godot'
+    --use 'habamax/vim-godot'
 
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-lua/popup.nvim'
@@ -33,18 +56,12 @@ return require('packer').startup(function()
     use 'mattn/emmet-vim'
     use 'sbdchd/neoformat'
 
-    use 'rakr/vim-one'
-    use 'morhetz/gruvbox'
     --use 'mfussenegger/nvim-dap'
     --use 'rcarriga/nvim-dap-ui'
     --use 'Pocco81/DAPInstall.nvim'
     --use 'bluz71/vim-nightfly-guicolors'
     --use 'whatyouhide/vim-gotham'
     --use 'tomasr/molokai'
-    use 'ayu-theme/ayu-vim'
-    use {'pineapplegiant/spaceduck',  branch = 'main' }
-    --use {'dracula/vim',  as = 'dracula' }
-    use {'catppuccin/nvim', as = 'catppuccin'}
     --use ('michaelb/sniprun', {['do']= 'bash install.sh'})
     --use ('tzachar/cmp-tabnine', { ['do'] = './install.sh' })
     --use 'windwp/nvim-autopairs'

@@ -5,7 +5,7 @@ set nocompatible
 set tabstop=4 
 set softtabstop=4
 set shiftwidth=4
-"set termguicolors
+set termguicolors
 "set signcolumn
 set cmdheight=2
 set incsearch
@@ -31,6 +31,7 @@ Plug 'morhetz/gruvbox'
 "Plug 'whatyouhide/vim-gotham'
 Plug 'mattn/emmet-vim'
 Plug 'sainnhe/sonokai'
+Plug 'sainnhe/everforest'
 "Plug 'dracula/vim'
 
 Plug 'sheerun/vim-polyglot'
@@ -54,7 +55,7 @@ let g:user_emmet_leader_key="<C-F>"
 let g:sonokai_style = 'shusia'
 "Available values:   `'default'`, `'atlantis'`, `'andromeda'`, `'shusia'`, `'maia'`,
 "let g:sonokai_better_performance = 1
-colorscheme sonokai
+colorscheme everforest
 vmap <leader>y y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
 "vmap <C-\> y:call system("wl-copy", @")<CR>:call system("wl-copy", @")<CR>
 
