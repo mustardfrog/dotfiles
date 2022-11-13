@@ -1,5 +1,54 @@
 # Colors (Tomorrow Night Bright)
 schemes: 
+  nord: &nord
+    primary:
+      background: '#2e3440'
+      foreground: '#d8dee9'
+      dim_foreground: '#a5abb6'
+    cursor:
+      text: '#2e3440'
+      cursor: '#d8dee9'
+    vi_mode_cursor:
+      text: '#2e3440'
+      cursor: '#d8dee9'
+    selection:
+      text: CellForeground
+      background: '#4c566a'
+    search:
+      matches:
+        foreground: CellBackground
+        background: '#88c0d0'
+      bar:
+        background: '#434c5e'
+        foreground: '#d8dee9'
+    normal:
+      black: '#3b4252'
+      red: '#bf616a'
+      green: '#a3be8c'
+      yellow: '#ebcb8b'
+      blue: '#81a1c1'
+      magenta: '#b48ead'
+      cyan: '#88c0d0'
+      white: '#e5e9f0'
+    bright:
+      black: '#4c566a'
+      red: '#bf616a'
+      green: '#a3be8c'
+      yellow: '#ebcb8b'
+      blue: '#81a1c1'
+      magenta: '#b48ead'
+      cyan: '#8fbcbb'
+      white: '#eceff4'
+    dim:
+      black: '#373e4d'
+      red: '#94545d'
+      green: '#809575'
+      yellow: '#b29e75'
+      blue: '#68809a'
+      magenta: '#8c738c'
+      cyan: '#6d96a5'
+      white: '#aeb3bb'
+
   everforest_dark_hard: &everforest_dark_hard
     primary:
       background: '#2b3339'
@@ -685,26 +734,90 @@ schemes:
       - { index: 17, color: '#F5E0DC' }
 
 
+  poimandres: &poimandres
+    primary:
+      background: "0x1b1e28"
+    foreground: "0xa6accd"
+
+      # Cursor colors
+    cursor:
+      text: CellBackground
+      cursor: CellForeground
+
+      # Search colors
+      #
+      # Colors used for the search bar and match highlighting.
+    search:
+      # Allowed values are CellForeground/CellBackground, which reference the
+      # affected cell, or hexadecimal colors like #ff00ff.
+      matches:
+        foreground: "0x1b1e28"
+      background: "0xadd7ff"
+
+    focused_match:
+      foreground: "0x1b1e28"
+      background: "0xadd7ff"
+
+    bar:
+      foreground: "0x1b1e28"
+      background: "0xadd7ff"
+
+        # Selection colors
+        #
+        # Colors which should be used to draw the selection area.
+        #
+        # Allowed values are CellForeground/CellBackground, which reference the
+        # affected cell, or hexadecimal colors like #ff00ff.
+      selection:
+        text: CellForeground
+      background: "0x303340"
+      vi_mode_cursor:
+        text: CellBackground
+      cursor: CellForeground
+
+        # Normal colors
+      normal:
+      black: "0x1b1e28"
+      red: "0xd0679d"
+      green: "0x5de4c7"
+      yellow: "0xfffac2"
+      blue: "0x89ddff"
+      magenta: "0xfcc5e9"
+      cyan: "0xadd7ff"
+      white: "0xffffff"
+
+        # Bright colors
+      bright:
+      black: "0xa6accd"
+      red: "0xd0679d"
+      green: "0x5de4c7"
+      yellow: "0xfffac2"
+      blue: "0xadd7ff"
+      magenta: "0xfae4fc"
+      cyan: "0x89ddff"
+      white: "0xffffff"
+
+
 font:
   normal:
-    family: Agave
+    family: IBM Plex Mono
     style: Regular
 
   bold:
-    family: Agave
+    family: IBM Plex Mono
     style: Bold
 
   italic:
-    family: Agave
+    family: IBM Plex Mono
     style: Italic
 
   bold_italic:
-    family: Agave
+    family: IBM Plex Mono
     style: Bold Italic
 
-  size: 15
+  size: 12
 
 window:
-  opacity: 1
+  opacity: 0.8
   decoration: none
-colors: *everforest_dark_hard
+colors: *tomorrow

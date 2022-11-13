@@ -19,11 +19,11 @@
 [colors]
 ;background = ${xrdb:color0:#222}
 background = #00000000
-background-alt = #444
+background-alt = #10002b
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+foreground = #e0aaff
 foreground-alt = #000
-primary = #ffac14
+primary = #e0aaff
 secondary = #e60053
 alert = #bd2c40
 
@@ -42,8 +42,8 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 0
-border-color = #000000
+border-size = 1
+border-color = #9d4edd
 
 padding-left = 2
 padding-right = 2
@@ -51,28 +51,28 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Monaco:pixelsize=8;1
+font-0 = Iosevka:pixelsize=12;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = bspwm 
-modules-center = mpd
-modules-right = alsa pulseaudio memory cpu temperature date powermenu
+modules-left = i3 
+modules-center = date
+modules-right =  battery pulseaudio memory 
 
 tray-position = right
 tray-padding = 2
-;tray-background = #0063ff
+tray-background = #0063ff
+override-redirect = false
 
-wm-restack = bspwm
+;wm-restack = bspwm
 bottom = true
-;wm-restack = i3
+wm-restack = i3
 
-;override-redirect = true
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -130,7 +130,7 @@ label-empty-padding = 2
 ; label-separator = |
 
 [module/i3]
-;type = internal/i3
+type = internal/i3
 ;format = <label-state> <label-mode>
 ;index-sort = true
 ;wrapping-scroll = false
@@ -146,11 +146,11 @@ label-mode-background = ${colors.primary}
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
-label-focused-padding = 2
+label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
-label-unfocused-padding = 2
+label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
@@ -214,8 +214,8 @@ label = %percentage:2%%
 type = internal/memory
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #056f1e
+format-prefix-foreground = ${colors.foreground}
+format-underline = #e0aaff
 label = %percentage_used%%
 
 [module/wlan]
@@ -260,17 +260,17 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =
-date-alt = " %Y-%m-%d"
+date-alt =
+date = " %Y-%m-%d"
 
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
+format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #056f1e
+format-underline = ${colors.primary}
 
-label = %date% %time%
+label = [ %date% ] [ %time% ]
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -284,10 +284,10 @@ label-muted-foreground = #666
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-1 = #9d4edd
+bar-volume-foreground-2 = #9d4edd
+bar-volume-foreground-3 = #9d4edd
+bar-volume-foreground-4 = #9d4edd
 bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
@@ -334,7 +334,7 @@ adapter = ADP1
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = #e0aaff
 
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
@@ -378,6 +378,20 @@ ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
+
+
+[module/nmapplet]
+type = custom/menu
+label= Internet
+expand-right = true
+label-open=kkk
+
+menu-0-0 = haha
+menu-0-0-exec = #nmapplet.open.1
+;menu-0-0-exec = nm-applet --no-startup-id
+
+menu-1-0 = lmao-applet
+;menu-1-0-exec = nm-applet --no-startup-id
 
 [module/powermenu]
 type = custom/menu
