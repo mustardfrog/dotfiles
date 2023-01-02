@@ -14,14 +14,14 @@ set $mod4 Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Ubuntu Mono 13
+font pango:IBM Plex Mono 10
 
 #default_border pixel 2
-for_window [class=".*"] border pixel 0
+# for_window [class=".*"] border pixel 0
 #default_border none
 #hide_edge_borders vertical
 #default_floating_border pixel 3
-default_floating_border normal
+# default_floating_border normal
 #new_window none
 
 
@@ -35,7 +35,7 @@ default_floating_border normal
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 #bindsym $mod+c exec makoctl dismiss
-exec polybar example &
+# exec polybar example &
 exec_always mako
 exec_always picom
 exec_always --no-startup-id killall back4.sh 
@@ -82,13 +82,14 @@ floating_modifier $mod
 #bindsym $mod+Return exec gnome-terminal --hide-menubar
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+T exec kitty
-bindsym $mod4+n exec thunar
-bindsym $mod+n workspace next
-bindsym $mod+Shift+b workspace prev
+bindsym $mod4+t exec thunar
+bindsym $mod4+n workspace next
+bindsym $mod4+Shift+b workspace prev
 bindsym $mod4+u exec boomer
 for_window [title="\ -\ Sharing\ Indicator$"] floating enable, sticky enable
 for_window [title="\ -\(DEBUG)"] floating enable 
 for_window [title="Godot"] floating enable 
+for_window [title="hello"] floating enable 
 for_window [title="Planner"] floating enable 
 for_window [class="OpenGL"] floating enable 
 for_window [title="qemu"] floating enable
@@ -103,7 +104,8 @@ bindsym $mod+r sticky toggle
 bindsym $mod+Shift+w kill
 
 # start dmenu (a program launcher)
-bindsym $mod+Shift+d exec --no-startup-id "rofi -show run -font 'Ubuntu Mono 17'"
+# bindsym $mod+Shift+d exec --no-startup-id "rofi -show run -font 'Ubuntu Mono 17'"
+bindsym $mod+Shift+d exec --no-startup-id "dmenu_run"
 # A more modern dmenu replacement is rofi:
  #bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -236,9 +238,9 @@ bindsym $mod+Shift+S exec flameshot gui
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    #status_command i3status --transparency
-    mode hide
-    #status_command i3blocks
+    status_command i3status --transparency
+    #mode hide
+    # status_command i3blocks
 }
 
 gaps outer 3
@@ -248,10 +250,10 @@ smart_borders on
 smart_gaps on
 
 #<colorclass> <border> <background> <text> <indicator> <child_border>
-#client.unfocused #01121A #01121A  #986e75  #ff8da1
-#client.focused #672934 #672934  #cab3b6  #ff8da1
-client.unfocused #000000 #000000  #986e75  #ff8da1
-client.focused #10002b  #10002b #e0aaff  #ff8da1
+client.focused #26233a #232136 #f6c177 #ff8da1
+client.unfocused #01121A #01121A #986e75 #ff8da1
+# client.unfocused #000000 #000000  #986e75  #ff8da1
+# client.focused #10002b  #10002b #e0aaff  #ff8da1
 
 #exec xautolock -time 6 -locker 'i3lock -e -c 223344 && echo mem > /sys/power/state'
 #exec xautolock -time 6 -locker 'i3lock -e -c 223344'

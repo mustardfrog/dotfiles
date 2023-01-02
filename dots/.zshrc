@@ -6,6 +6,8 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
+#export FZF_DEFAULT_COMMAND='ag --nocolor --ignore node_modules -g'
+export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 
 bindkey -e
 bindkey -s '^r' 'lfub^M'
@@ -27,13 +29,14 @@ alias pix='flatpak run com.orama_interactive.Pixelorama'
 alias e='emacsclient -c'
 alias xi='sudo xbps-install'
 alias xq='xbps-query'
-alias p='sudo pacman'
+#alias p='sudo pacman'
 alias g='g++ -std=c++17'
 alias ls='ls --color=auto'
 alias ll='exa --icons'
+alias nvim='~/./fun/nvim-linux64/bin/nvim'
 
 
-export EDITOR='nvim'
+export EDITOR='vim'
 export BROWSER='firefox'
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.local/share
@@ -45,19 +48,24 @@ export PATH=$PATH:/usr/local/bin/zig
 export PATH=$PATH:$HOME/fun/emsdk/emsdk_env.sh
 
 export GOPATH=$HOME/go
-export GOROOT=/usr/lib/go
 export PATH=$PATH:$GOPATH
+export GOROOT=/usr/local/go
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+#export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 #export PATH=$PATH:$(dirname $(go list -f '{{.Target}}' .))
 #export PATH=~/.local/bin:$PATH
 
 eval "$(starship init zsh)"
-export TERM=xterm-256color
+#export TERM=xterm-256color
+
+[ -f "/home/chaeng/.ghcup/env" ] && source "/home/chaeng/.ghcup/env" # ghcup-env
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #export TERM=xterm-256color-italic
 #alias dotfiles='/usr/bin/git --git-dir=/home/archmonkey/.dotfiles/ --work-tree=/home/archmonkey'
-[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
+#[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 #source /usr/share/zsh/autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
