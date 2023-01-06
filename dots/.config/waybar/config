@@ -1,16 +1,17 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
+    "height": 10, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/media", "sway/window"],
+    "modules-left": ["wlr/workspaces", "wlr/mode", "custom/media", "wlr/window"],
     "modules-center": ["clock"],
-    "modules-right": [ "idle_inhibitor",  "network", "backlight", "pulseaudio", "battery", "battery#bat2",  "tray"],
+    "modules-right": [ "tray","battery", "idle_inhibitor",  "network", "pulseaudio"],
     // Modules configuration
-    "sway/workspaces": {
-        //"disable-scroll": false,
+    "wlr/workspaces": {
+        "disable-scroll": false,
+        "disable-click": false,
         "all-outputs": true,
         "format": "{name}: {icon}",
         "format-icons": {
@@ -22,7 +23,9 @@
             "urgent": "",
             "focused": "",
             "default": ""
-        }
+        },
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
     },
     "keyboard-state": {
         "numlock": true,
@@ -33,7 +36,7 @@
             "unlocked": ""
         }
     },
-    "sway/mode": {
+    "wlr/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
     "mpd": {
@@ -70,11 +73,11 @@
         }
     },
     "tray": {
-        // "icon-size": 21,
+        "icon-size": 21,
         "spacing": 10
     },
     "clock": {
-        //"timezone": "Asia/Thailand",
+        "timezone": "Asia/Manila",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         //"format-alt": "{:%Y-%m-%d}"
         "format": "{:%a, %d. %b  %H:%M}"
@@ -101,7 +104,7 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
+            "good": 95,
             "warning": 30,
             "critical": 15
         },
@@ -142,7 +145,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
     },
     "custom/media": {
         "format": "{icon} {}",
