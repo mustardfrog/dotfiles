@@ -1,4 +1,3 @@
-# Dotfiles
+### Cozy Rice
 
-Low effort ricing...
-![Endevour!!](/images/small_rice2.png)
+![Endevour!!](/images/2023_hypr_rice.png)
