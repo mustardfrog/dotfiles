@@ -1,12 +1,16 @@
 local catppuccin = require("catppuccin")
 -- configure it
 catppuccin.setup({
-    transparent_background = false
+    transparent_background = true
 })
+
 vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 --vim.g.oxocarbon_lua_transparent = true
 --vim.g.tokyonight_transparent=true
 
+require('lualine').setup{
+    options = { theme =  'catppuccin' }
+}
 vim.cmd[[
 
     let g:gruvbox_contrast_dark='medium'
@@ -30,11 +34,11 @@ vim.cmd[[
     let g:everforest_sign_column_background='grey'
 
 
-    colorscheme everforest
+    colorscheme nord
 
 
     "set t_ut=
-    "au VimEnter * hi Normal ctermbg=NONE guibg=NONE
+    au VimEnter * hi Normal ctermbg=NONE guibg=NONE
      "au VimEnter * hi LineNr guibg=none ctermbg=none guifg=none
      "au VimEnter * hi StatusLine guibg=none ctermbg=none guifg=none
 ]]

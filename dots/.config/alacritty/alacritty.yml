@@ -1,5 +1,12 @@
 # Colors (Tomorrow Night Bright)
-schemes: 
+custom_cursor_colors: true
+cursor:
+  # red cursor
+  # text: '#bb0b16'
+  # cursor: '#bc0116'
+  style:
+    shape: Underline
+scheBlockmes: 
   nord: &nord
     primary:
       background: '#2e3440'
@@ -245,7 +252,10 @@ schemes:
       white:   '#928374'
 
 
-  tokyo-night-storm: &tokyo-night
+  tokyo-night: &tokyo-night
+    cursor:
+      text: '#000000'
+      cursor: '#bc0116'
     primary:
       background: '0x1a1b26'
       foreground: '0xa9b1d6'
@@ -337,7 +347,7 @@ schemes:
     # Colors the cursor will use if `custom_cursor_colors` is true
     cursor:
       text: '0x1E1D2F'
-      cursor: '0xF5E0DC'
+      cursor: '0xFFFFDC'
 
     # Normal colors
     normal:
@@ -801,9 +811,13 @@ schemes:
     primary:
       background: "0x191724"
       foreground: "0xe0def4"
-    cursor:
-      text: "0xe0def4"
-      cursor: "0x524f67"
+    # red cursor
+    cursor: 
+      text: '#eeeeee'
+      cursor: '#bc0116'
+    # cursor:
+    #   text: "0xe0def4"
+    #   cursor: "0x524f67"
     vi_mode_cursor:
       text: "0xe0def4"
       cursor: "0x524f67"
@@ -840,22 +854,22 @@ schemes:
         background: "#1f1d2e"
 font:
   normal:
-    family: Fira Code
+    family: Iosevka
     style: Regular
 
   bold:
-    family: Fira Code
+    family: Iosevka
     style: Bold
 
   italic:
-    family: Fira Code
+    family: Iosevka
     style: Italic
 
   bold_italic:
-    family: Fira Code
+    family: Iosevka
     style: Bold Italic
 
-  size: 13
+  size: 11
 
 window:
   opacity: 0.9

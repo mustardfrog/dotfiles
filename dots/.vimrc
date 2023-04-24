@@ -5,7 +5,6 @@ set nocompatible
 set tabstop=4 
 set softtabstop=4
 set shiftwidth=4
-set termguicolors
 "set signcolumn
 set cmdheight=2
 set incsearch
@@ -34,7 +33,7 @@ Plug 'sainnhe/sonokai'
 Plug 'sainnhe/everforest'
 "Plug 'dracula/vim'
 
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
 Plug 'ap/vim-css-color'
 Plug 'preservim/nerdcommenter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -42,20 +41,20 @@ Plug 'junegunn/fzf.vim'
 "Plug 'preservim/nerdtree'
 "Plug 'ryanoasis/vim-devicons'
 
-"Plug 'rakr/vim-one'
-Plug 'ayu-theme/ayu-vim'
+Plug 'rakr/vim-one'
+"Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
 
-let g:gruvbox_transparent_bg=1
+"let g:gruvbox_transparent_bg=1
 "autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE
 set bg=dark
 let g:user_emmet_leader_key="<C-F>"
 " The configuration options should be placed before `colorscheme sonokai`.
-let g:sonokai_style = 'shusia'
 "Available values:   `'default'`, `'atlantis'`, `'andromeda'`, `'shusia'`, `'maia'`,
 "let g:sonokai_better_performance = 1
 colorscheme everforest
+let g:sonokai_style = 'shusia'
 vmap <leader>y y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
 "vmap <C-\> y:call system("wl-copy", @")<CR>:call system("wl-copy", @")<CR>
 

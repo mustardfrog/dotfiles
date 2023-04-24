@@ -5,33 +5,37 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
     -- cololrschemes
+    use { 'catppuccin/nvim', as = 'catppuccin' }
+    use "EdenEast/nightfox.nvim"
     use 'folke/tokyonight.nvim'
-    --use 'B4mbus/oxocarbon-lua.nvim'
-    use {'catppuccin/nvim', as = 'catppuccin'}
-    use "EdenEast/nightfox.nvim" 
-    --use 'shaunsingh/nord.nvim'
-    --use 'rakr/vim-one'
     use 'morhetz/gruvbox'
     use 'sainnhe/gruvbox-material'
     use 'sainnhe/everforest'
+    use 'shaunsingh/nord.nvim'
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
+    --use 'B4mbus/oxocarbon-lua.nvim'
+    --use 'rakr/vim-one'
 
     --use 'ayu-theme/ayu-vim'
     --use {'pineapplegiant/spaceduck',  branch = 'main' }
 
     --use {'dracula/vim',  as = 'dracula' }
 
-  -- Packer can manage itself
+    -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
     --use {
-        --'kyazdani42/nvim-tree.lua',
-        --requires = {
-            --'kyazdani42/nvim-web-devicons', -- optional, for file icons
-        --},
-        ----tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    --'kyazdani42/nvim-tree.lua',
+    --requires = {
+    --'kyazdani42/nvim-web-devicons', -- optional, for file icons
+    --},
+    ----tag = 'nightly' -- optional, updated every week. (see issue #1193)
     --}
 
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'nvim-treesitter/nvim-treesitter-context'
 
     use 'neovim/nvim-lspconfig'

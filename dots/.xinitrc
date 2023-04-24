@@ -1,10 +1,11 @@
-feh ~/Pictures/wallpapers/cyber_girl.jpg --bg-fill
+feh ~/Pictures/wallpapers/nord_sea.png  --bg-fill
 ibus-daemon -rdx &
+setxkbmap -option ctrl:nocaps
 # xrdb --merge ~/.Xresources
 #picom --experimental-backend &
-picom &
+#picom &
 #polybar example &
 # emacs --daemon &
 #xrandr --output VGA-0 --auto --left-of HDMI-0
-setxkbmap dvorak
+setxkbmap us real-prog-dvorak
 exec i3

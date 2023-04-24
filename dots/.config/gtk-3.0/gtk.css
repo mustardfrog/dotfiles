@@ -1,24 +1,27 @@
 window.thunar {
-  background: none;
+  background: #10002b;
   /* hide separator */
 }
 window.thunar treeview {
-  background: none;
+  /*background: rgba(224, 170, 255, 0.8);*/
+  background: rgba(16, 0, 43, 0.8);
+  padding: 3px;
+  font: Iosevka 17px;
 }
 window.thunar grid *:selected,
 window.thunar grid *:active {
-  background: #43a6c6;
+  background: #e0aaff;
   border-radius: 3px;
 }
 window.thunar .sidebar {
   /*background: #131a1c;*/
-  background: none;
-  padding: 1rem;
+  background: #9d4edd;
+  border-radius: 0.5em;
+  padding: 1px;
 }
-window.thunar treeview {
-  padding: 3px;
-  color: #dadada;
-}
+/*window.thunar treeview {*/
+  /*color: #dadada;*/
+/*}*/
 window.thunar treeview:selected {
   /*background: #202729;*/
   color: #000;
@@ -29,7 +32,7 @@ window.thunar .frame {
 }
 window.thunar toolbar entry {
   /*background: #2c3335;*/
-  background: none;
+  background: #10004b;
   border-radius: 10px;
   margin: 3px 2em 3px 1em;
   padding: 0px 1rem;
@@ -38,15 +41,12 @@ window.thunar toolbar entry image {
   background-image: image(rgba(54, 61, 63, 1)));
 }
 window.thunar paned grid {
-  background: none;
+  background: #15404b;
   color: #dadada;
 }
 window.thunar toolbar {
-  background: none;
+  /*background: none;*/
   padding: 5px 0;
-}
-window.thunar toolbar * {
-  background: none;
 }
 /*window.thunar separator {*/
   /*background-image: image(#131a1c);*/

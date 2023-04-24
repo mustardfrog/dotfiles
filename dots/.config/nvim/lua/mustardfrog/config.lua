@@ -4,34 +4,34 @@ local g = vim.g
 opt.relativenumber = true
 opt.nu = true
 opt.expandtab = true
-g.mapleader=' '
-opt.cmdheight=2
+g.mapleader = ' '
+opt.cmdheight = 2
 opt.swapfile = false
 opt.wrap = true
 opt.smartindent = true
 opt.termguicolors = true
-opt.mouse='nvi'
+opt.mouse = 'nvi'
 opt.cursorline = false
 opt.hlsearch = false
-opt.tabstop=4 
-opt.softtabstop=4
-opt.shiftwidth=4
-opt.scrolloff=8
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
+opt.scrolloff = 8
 opt.backup = false
-opt.signcolumn= 'yes'
-opt.switchbuf='useopen,usetab'
+opt.signcolumn = 'yes'
+opt.switchbuf = 'useopen,usetab'
 opt.writebackup = false
 opt.hidden = false
 opt.ic = true
-opt.encoding='UTF-8'
-opt.scroll=8
+opt.encoding = 'UTF-8'
+opt.scroll = 8
 opt.hidden = true
-opt.updatetime=300
+opt.updatetime = 300
 opt.compatible = false
 --Set completeopt to have a better completion experience
-opt.completeopt='menuone,noinsert,noselect'
+opt.completeopt = 'menuone,noinsert,noselect'
 
-vim.cmd[[ 
+vim.cmd [[ 
   set shortmess+=cr 
   syntax enable
   filetype plugin indent on
@@ -57,22 +57,3 @@ vim.cmd[[
 
     set laststatus=2
 ]]
-
--- OR setup with some options
---require("nvim-tree").setup({
-  --sort_by = "case_sensitive",
-  --view = {
-    --adaptive_size = true,
-    --mappings = {
-      --list = {
-        --{ key = "u", action = "dir_up" },
-      --},
-    --},
-  --},
-  --renderer = {
-    --group_empty = true,
-  --},
-  --filters = {
-    --dotfiles = true,
-  --},
---})

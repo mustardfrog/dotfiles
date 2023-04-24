@@ -14,13 +14,12 @@ set $mod4 Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Jetbrains Mono 10
+font pango:IBM Plex Mono 10
 
-default_border pixel 3
+# default_border pixel 2
 #hide_edge_borders vertical
 default_floating_border pixel 1
 
-for_window [class="Kitty"] floating enable
 #for_window [class="alacritty"] pixel none
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -30,6 +29,7 @@ for_window [class="Kitty"] floating enable
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
+bindsym $mod+c exec makoctl dismiss
 exec_always mako
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -73,12 +73,19 @@ bindsym $mod+Shift+T exec kitty
 bindsym $mod4+n exec nautilus
 bindsym $mod+n workspace next
 bindsym $mod+Shift+b workspace prev
+for_window [title="\ -\ Sharing\ Indicator$"] floating enable, sticky enable
+#for_window [title="firefox"] sticky enable
+for_window [title="qemu"] floating enable
+for_window [title="Godot"] floating enable
+for_window [class="kitty"] floating enable
+for_window [class="OpenGL"] floating enable 
+bindsym $mod+r sticky toggle
 
 # kill focused window
 bindsym $mod+Shift+w kill
 
 # start dmenu (a program launcher)
-bindsym $mod+Shift+d exec --no-startup-id "rofi -show run"
+bindsym $mod+Shift+d exec --no-startup-id "wofi --show drun"
 # A more modern dmenu replacement is rofi:
  #bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -175,7 +182,8 @@ bindsym $mod+Shift+R reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+p restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "swaynag -t warning -m 'Outside World....' -B 'Let me out' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "swaynag -t warning -m 'Outside World....' -B 'Let me out' 'i3-msg exit'"
+bindsym $mod+Shift+e exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -209,36 +217,39 @@ bindsym $mod+Shift+S exec slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'gr
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    #status_command i3status --transparency
-    mode hide
-    status_command waybar
+    status_command i3status
+    # mode hide
+    # status_command waybar
 }
 
-gaps outer 6
-gaps inner 6
+gaps outer 0
+gaps inner 1
+# hide_edge_borders smart
+# smart_gaps on
 
 #<colorclass> <border> <background> <text> <indicator> <child_border>
 client.unfocused #01121A #01121A  #986e75  #ff8da1
 client.focused #672934 #672934  #cab3b6  #ff8da1
-#seat seat0 xcursor_theme Qogir 25
+#seat seat0 xcursor_theme Adwaita 30
 
 input type:keyboard {
     xkb_layout us(dvorak)
     xkb_options grp:ctrls_toggle
+    xkb_options ctrl:nocaps
     #xkb_options grp:rctrl_switch
 }
 
 input type:touchpad {
     tap enabled
     natural_scroll enabled
-    #drag enabled
+    drag enabled
     middle_emulation enabled
 }
 
-output "*" bg ~/Pictures/wallpapers/stray_neon.png fill
+output "*" bg ~/Pictures/wallpapers/cyber_girl.jpg fill
 
 exec swayidle -w \
-    timeout 300 'swaylock -f -i ~/Pictures/wallpapers/pc_crash.png fill' \
+    timeout 300 'swaylock -f -i ~/Pictures/wallpapers/blue_night.jpg fill' \
     timeout 400 'swaymsg "output * dpms off"' \
      resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f -c 000000'
