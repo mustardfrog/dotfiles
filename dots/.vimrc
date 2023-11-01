@@ -1,10 +1,15 @@
 set nu relativenumber
+syntax on
 "set list listchars=tab:»-,trail:·,extends:»,precedes:«
-set mouse=nvi
+set ttymouse=xterm2
+set mouse=a
 set nocompatible
 set tabstop=4 
+set termguicolors
 set softtabstop=4
 set shiftwidth=4
+set ignorecase
+set smartcase
 "set signcolumn
 set cmdheight=2
 set incsearch
@@ -13,35 +18,38 @@ let mapleader=" "
 set expandtab
 set laststatus=2
 set noerrorbells
-set nohidden
+set hidden
 noremap <C-N> :bn<CR>
 noremap <C-P> :bp<CR>
 noremap <C-x> :bd<CR>
 set encoding=UTF-8
-set scroll=8
+set scrolloff=8
 imap jk <ESC>
 "nnoremap <C-(> <C-w>+
 nnoremap <C-_> <C-w>-
 inoremap <C-c> <ESC>
+
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Yggdroot/indentLine'
-Plug 'morhetz/gruvbox'
-"Plug 'whatyouhide/vim-gotham'
 Plug 'mattn/emmet-vim'
-Plug 'sainnhe/sonokai'
-Plug 'sainnhe/everforest'
-"Plug 'dracula/vim'
 
-"Plug 'sheerun/vim-polyglot'
 Plug 'ap/vim-css-color'
-Plug 'preservim/nerdcommenter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-fugitive'
+Plug 'preservim/nerdcommenter'
 "Plug 'preservim/nerdtree'
 "Plug 'ryanoasis/vim-devicons'
 
-Plug 'rakr/vim-one'
+"Plug 'Yggdroot/indentLine'
+"Plug 'whatyouhide/vim-gotham'
+"Plug 'sainnhe/sonokai'
+"Plug 'sainnhe/everforest'
+"Plug 'dracula/vim'
+"Plug 'rakr/vim-one'
 "Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
@@ -53,10 +61,10 @@ let g:user_emmet_leader_key="<C-F>"
 " The configuration options should be placed before `colorscheme sonokai`.
 "Available values:   `'default'`, `'atlantis'`, `'andromeda'`, `'shusia'`, `'maia'`,
 "let g:sonokai_better_performance = 1
-colorscheme everforest
-let g:sonokai_style = 'shusia'
-vmap <leader>y y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
-"vmap <C-\> y:call system("wl-copy", @")<CR>:call system("wl-copy", @")<CR>
+colorscheme catppuccin_mocha
+"let g:sonokai_style = 'maia'
+"vmap <leader>y y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
+vmap <C-\> y:call system("wl-copy", @")<CR>:call system("wl-copy", @")<CR>
 
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_transparent_bg = 1
@@ -74,7 +82,22 @@ set updatetime=300
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-set signcolumn=yes
+set signcolumn=no
+nnoremap H :bp<CR>
+nnoremap L :bn<CR>
+set statusline=
+set statusline+=\ %f 
+set statusline+=\ %{StatuslineGit()}
+"set statusline+=\ %{coc#status()}%{get(b:,'coc_current_function','')}
+
+function! GitBranch()
+    return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+    let l:branchname = GitBranch()
+    return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: There's always complete item selected by default, you may want to enable
@@ -106,8 +129,8 @@ endif
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> [a <Plug>(coc-diagnostic-prev)
+nmap <silent> ]a <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -133,8 +156,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>fm  <Plug>(coc-format-selected)
+nmap <leader>fm  <Plug>(coc-format)
 
 augroup mygroup
   autocmd!
@@ -155,7 +178,7 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Run the Code Lens action on the current line.
-nmap <leader>cl  <Plug>(coc-codelens-action)
+nmap <leader>lc  <Plug>(coc-codelens-action)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -192,18 +215,17 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+ "Add (Neo)Vim's native statusline support.
+ "NOTE: Please see `:h coc-status` for integrations with external plugins that
+ "provide custom statusline: lightline.vim, vim-airline.
 
-" Mappings for CoCList
-" Show all diagnostics.
+ "Mappings for CoCList
+ "Show all diagnostics.
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
 nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> <space>cl  :<C-u>CocList commands<cr>
 " Find symbol of current document.
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
@@ -214,5 +236,5 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
+"
 nnoremap <leader>ff :Files<CR>

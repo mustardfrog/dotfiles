@@ -1,6 +1,6 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Jetbrains Mono, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: Space Mono Nerd Font, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 12px;
     padding: 0px 0px;
     margin: 0 1;
@@ -34,7 +34,7 @@ window#waybar.solo {
 }
 */
 
-window#waybar.termite {
+window#waybar.foot {
     background-color: #3F3F3F;
 }
 
@@ -48,7 +48,7 @@ window#waybar.firefox {
     /*background-color: rgba(103, 41, 52, 0.1);*/
     /* background-color: #191724; */
     background-color: #0c0c0c;
-    color: #333d29;
+    color: #ebdbb2;
     /* Use box-shadow instead of border so the text isn't offset */
     /*box-shadow: inset 0 -3px transparent;*/
     /* Avoid rounded borders under each workspace name */
@@ -58,15 +58,17 @@ window#waybar.firefox {
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
-    background: #88bb99;
+    background: #fabd2f;
     color: #000;
+    border: none;
     /* box-shadow: inset 0 -3px #ffee33; */
 }
 
 #workspaces button.active {
     /* background-color: #26233a; */
+    /* background-color: #66cc99; */
+    background: #fabd2f;
     color: #0c0c0c;
-    background-color: #66cc99;
     /*box-shadow: inset 0 -3px #191919;*/
     /* border: 1px solid #66cc99; */
 }
@@ -119,8 +121,8 @@ window#waybar.firefox {
 #clock {
     /* background-color: #1f1d2e; */
     background-color: #0c0c0c;
+    color: #ebdbb2;
     /* color: #66cc99; */
-    color: #66cc99;
 }
 
 #battery {
@@ -182,7 +184,8 @@ label:focus {
 #pulseaudio {
     background-color: #0c0c0c;
     /*background-color: rgba(32, 25, 34, 1);*/
-    color: #66cc99;
+    /* color: #66cc99; */
+    color: #ebdbb2;
 }
 
 #pulseaudio.muted {

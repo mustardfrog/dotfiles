@@ -1,33 +1,9 @@
-# Luke's lf settings
-
-
-# Note on Image Previews
-# For those wanting image previews, like this system, there are four steps to
-# set it up. These are done automatically for LARBS users, but I will state
-# them here for others doing it manually.
-#
-# 1. ueberzug must be installed.
-# 2. The scope file (~/.config/lf/scope for me), must have a command similar to
-#    mine to generate ueberzug images.
-# 3. A `set cleaner` line as below is a cleaner script.
-# 4. lf should be started through a wrapper script (~/.local/bin/lfub for me)
-#    that creates the environment for ueberzug. This command can be be aliased
-#    in your shellrc (`alias lf="lfub") or if set to a binding, should be
-#    called directly instead of normal lf.
-
-# Basic vars
-set previewer ctpv
-set cleaner ctpvclear
-&ctpv -s $id
-cmd on-quit $ctpv -e $id
-
 #set shellopts '-eu'
 set ifs "\n"
 set scrolloff 10
 # set icons
 set period 1
 set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
-#set hidden
 #set cleaner '~/.config/lf/cleaner'
 #set previewer '~/.config/lf/scope'
 
@@ -64,6 +40,8 @@ cmd extract ${{
 	read ans
 	[ $ans = "y" ] && aunpack $fx
 }}
+# map <delete> trash
+# map <delete> delete
 
 cmd delete ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
@@ -74,12 +52,21 @@ cmd delete ${{
 	[ $ans = "y" ] && rm -rf -- $fx
 }}
 
-hidden!
+cmd set_wallpaper ${{
+	set -f
+	printf "Flie: " "$fx"
+	killall swaybg
+	swaybg -i $fx -m fill &
+}}
+
+# hidden!
 map <enter> shell
 map x $$f
 map X !$f
 map o &mimeopen $f
 map O $mimeopen --ask $f
+
+map P set_wallpaper
 
 map A rename # at the very end
 map c push A<c-u> # new rename
@@ -93,10 +80,13 @@ map <c-e> down
 map <c-y> up
 map V push :!nvim<space>
 
-map W $setsid -f $TERMINAL >/dev/null 2>&1
-
-map Y $printf "%s" "$fx" | xclip -selection clipboard
+# map W $setsid -f $TERMINAL >/dev/null 2>&1
+#
+# map Y $printf "%s" "$fx" | xclip -selection clipboard
 
 
 # Source Bookmarks
 #source "~/.config/lf/shortcutrc"
+# source ~/.config/lf/wallpaper
+set previewer ~/.config/lf/lf_kitty_preview
+set cleaner ~/.config/lf/lf_kitty_clean

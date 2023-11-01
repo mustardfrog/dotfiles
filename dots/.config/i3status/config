@@ -85,3 +85,4 @@ volume master {
 
 tztime local {
         format = " %a %b %d [%H:%M:%S] "
+}

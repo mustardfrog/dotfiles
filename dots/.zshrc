@@ -8,11 +8,14 @@
 HISTFILE=~/.histfile
 HISTSIZE=800
 SAVEHIST=800
-#export FZF_DEFAULT_COMMAND='ag --nocolor --ignore node_modules -g'
-# export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
+# export FZF_DEFAULT_COMMAND='rg --nocolor --ignore node_modules -g'
+export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
+export FZF_DEFAULT_COMMAND='fd -E=node_modules -t=f'
 
 bindkey -e
-bindkey -s '^r' 'lfub^M'
+bindkey -s '^r' 'lf^M'
+bindkey -s '^v' 'bash ~/projects/bash/fzf_tmux_dir/fzf.sh\n'
+# bindkey -s '^v' 'vim'
 
 autoload -Uz vcs_info
 precmd() { vcs_info }
@@ -21,18 +24,9 @@ zstyle ':vcs_info:git:*' formats '%b '
 
 setopt PROMPT_SUBST
 
-# Extract the last two directories from the path
-prompt_dir() {
-  local path_segments
-  path_segments=(${(s:/:)PWD})
-  if [[ $#path_segments -gt 2 ]]; then
-    echo "${path_segments[-2]}/${path_segments[-1]}"
-  else
-    echo $PWD
-  fi
-}
-# PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ '
-PROMPT='%F{yellow}$(prompt_dir)%f %F{red}${vcs_info_msg_0_}%f$ '
+## PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ '
+# PS1='[%2d] '
+PROMPT='%F{blue} [%2d] %F{red}${vcs_info_msg_0_}%f%F{green}~> '
 
 nvi() {
   local file 
@@ -56,9 +50,11 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
 alias pix='flatpak run com.orama_interactive.Pixelorama'
+# alias fzf
 alias e='emacsclient -c'
 alias hx='helix'
 alias c='cargo'
+alias pn='pnpm'
 # alias xi='sudo xbps-install'
 # alias xq='xbps-query'
 alias p='doas pacman'
@@ -96,14 +92,14 @@ export PATH="$HOME/.moon/bin:$PATH"
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # opam configuration
-# [[ ! -r /home/chaeng/.opam/opam-init/init.zsh ]] || source /home/chaeng/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+[[ ! -r /home/chaeng/.opam/opam-init/init.zsh ]] || source /home/chaeng/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 # bun completions
-# [ -s "/home/chaeng/.bun/_bun" ] && source "/home/chaeng/.bun/_bun"
+[ -s "/home/chaeng/.bun/_bun" ] && source "/home/chaeng/.bun/_bun"
 
 # bun
-# export BUN_INSTALL="$HOME/.bun"
-# export PATH="$BUN_INSTALL/bin:$PATH"
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 #export TERM=xterm-256color-italic
 #alias dotfiles='/usr/bin/git --git-dir=/home/archmonkey/.dotfiles/ --work-tree=/home/archmonkey'
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
@@ -111,10 +107,12 @@ export PATH="$HOME/.moon/bin:$PATH"
 # [ -f "/home/chaeng/.ghcup/env" ] && source "/home/chaeng/.ghcup/env" # ghcup-env
 # 
 
-function md() {
-    pandoc $1 > /tmp/$1.html
-    xdg-open /tmp/$1.html
-}
-
+# pnpm
+export PNPM_HOME="/home/chaeng/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
