@@ -1,0 +1,104 @@
+{
+  "workbench.colorTheme": "Vitesse Dark",
+  "editor.fontFamily": "'Jetbrains Mono', 'monospace', IBM Plex Mono",
+  "editor.fontSize": 18,
+  "editor.fontLigatures": true,
+  "workbench.iconTheme": "catppuccin-mocha",
+  "editor.tabSize": 2,
+  "editor.minimap.enabled": false,
+  "editor.inlineSuggest.showToolbar": "always",
+  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
+  "workbench.preferredHighContrastColorTheme": "Catppuccin Mocha",
+  "workbench.sideBar.location": "right",
+  "scm.inputFontSize": 15,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "window.openFoldersInNewWindow": "off",
+  "workbench.startupEditor": "none",
+  "window.restoreWindows": "none",
+  "workbench.tree.renderIndentGuides": "none",
+  "editor.guides.indentation": false,
+  "editor.cursorBlinking": "phase",
+  "editor.cursorSmoothCaretAnimation": "off",
+  "window.menuBarVisibility": "toggle",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.smoothScrolling": true,
+  "editor.tabFocusMode": true,
+  "workbench.activityBar.visible": false,
+  "breadcrumbs.enabled": false,
+  "notebook.breadcrumbs.showCodeCells": false,
+  "vim.insertModeKeyBindings": [
+    { //exit insert mode
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    },
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [
+        "<leader>",
+        "r",
+        "n",
+      ],
+      "commands": [
+        "editor.action.rename"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "n",
+      ],
+      "commands": [
+        "editor.action.marker.next"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "t",
+      ],
+      "commands": [
+        "editor.action.marker.prev"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "k"
+      ],
+      "commands": [
+        "editor.action.showHover"
+      ]
+    },
+    {
+      "before": [
+        "K"
+      ],
+      "commands": [
+        "editor.action.showDefinitionPreviewHover"
+      ]
+    },
+  ],
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vim.leader": "<space>",
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "editor.lineNumbers": "relative",
+  "workbench.layoutControl.type": "menu",
+  "editor.glyphMargin": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.suggest.preview": true,
+  "window.zoomLevel": -1,
+}

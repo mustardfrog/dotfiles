@@ -15,7 +15,7 @@ set $mod4 Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font pango:Hermit 10
-font pango:Space Mono Nerd Font 9
+font pango: Maple Mono 10
 
 default_border pixel 1
 # for_window [class=".*"] border pixel 0
@@ -40,8 +40,9 @@ exec --no-startup-id dex --autostart --environment i3
 # notification
 # exec_always mako
 exec_always picom
+# exec_always fcitx5
 # exec_always --no-startup-id back4.sh 0.03 $HOME/Pictures/pixel_snow_mountain.gif
-exec_always feh --bg-fill $HOME/Pictures/wallpapers/Park.jpg
+# exec_always feh --bg-fill $HOME/Pictures/wallpapers/
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -55,7 +56,8 @@ exec --no-startup-id xss-lock -- i3lock
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 exec systemctl --user import-environment
-exec setxkbmap us dvorak
+# exec setxkbmap us dvorak
+exec "setxkbmap -layout 'us' -variant 'dvorak'"
 #exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 # Use pactl to adjust volume in PulseAudio.
@@ -76,7 +78,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod4
+floating_modifier $mod
 
 # F keys volume test
 bindsym $mod+F11 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +3% && $refresh_i3status
@@ -87,7 +89,7 @@ bindsym $mod+F9 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle &
 #bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec gnome-terminal --hide-menubar
 bindsym $mod+Return exec alacritty
-bindsym $mod+Shift+T exec kitty
+# bindsym $mod+Shift+T exec kitty
 bindsym $mod4+t exec thunar
 bindsym $mod4+n workspace next
 bindsym $mod4+Shift+b workspace prev

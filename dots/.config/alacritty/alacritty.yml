@@ -695,12 +695,13 @@ scheBlockmes:
       background: "0x191724"
       foreground: "0xe0def4"
     # red cursor
-    cursor: 
-      text: '#eeeeee'
-      cursor: '#bc0116'
-    # cursor:
-    #   text: "0xe0def4"
-    #   cursor: "0x524f67"
+    # cursor: 
+    #   text: '#eeeeee'
+    #   cursor: '#bc0116'
+    cursor:
+      text: "0xe0def4"
+      # cursor: "0x524f67"
+      cursor: "0xeb6f92"
     vi_mode_cursor:
       text: "0xe0def4"
       cursor: "0x524f67"
@@ -766,27 +767,52 @@ scheBlockmes:
       cyan: "#3ddbd9"
       white: "#ffffff"
 
+  melange: &melange
+    primary:
+      foreground: '#ECE1D7'
+      background: '#292522'
+    normal:
+      black:   '#34302C'
+      red:     '#BD8183'
+      green:   '#78997A'
+      yellow:  '#E49B5D'
+      blue:    '#7F91B2'
+      magenta: '#B380B0'
+      cyan:    '#7B9695'
+      white:   '#C1A78E'
+    bright:
+      black:   '#867462'
+      red:     '#D47766'
+      green:   '#85B695'
+      yellow:  '#EBC06D'
+      blue:    '#A3A9CE'
+      magenta: '#CF9BC2'
+      cyan:    '#89B3B6'
+      white:   '#ECE1D7'
+
+# RecMonoDuotone
+# Monaspace -> Neon, Krypton, Argon, Radon
 font:
   normal:
-    family: VictorMono
+    family: CasCadiaCode
     style: Regular
   bold:
-    family: VictorMono
+    family: CasCadiaCode
     style: Bold
   italic:
-    family:  VictorMono
+    family:  CasCadiaCode
     style: Italic
   bold_italic:
-    family: VictorMono
+    family: CasCadiaCode
     style: Bold Italic
 
-  size: 12
+  size: 11
 
 window:
-  opacity: 0.9
+  opacity: 1
   decoration: none
   padding:
     x: 17
     y: 0
     # dynamic_padding: true
-colors: *mocha
+colors: *melange

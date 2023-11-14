@@ -55,8 +55,9 @@ cmd delete ${{
 cmd set_wallpaper ${{
 	set -f
 	printf "Flie: " "$fx"
-	killall swaybg
-	swaybg -i $fx -m fill &
+	# killall swaybg
+	# swaybg -i $fx -m fill &
+	feh --bg-fill $fx
 }}
 
 # hidden!
