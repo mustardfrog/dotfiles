@@ -32,7 +32,7 @@ ShowInstallerIsoInfo() {
 
 
 alias ls='ls --color=auto'
-alias ll='ls -lav --ignore=..'   # show long listing of all except ".."
+# alias ll='ls -lav --ignore=..'   # show long listing of all except ".."
 alias l='ls -lav --ignore=.?*'   # show long listing but no hidden dotfiles except "."
 
 [[ "$(whoami)" = "root" ]] && return
@@ -87,9 +87,10 @@ _open_files_for_editing() {
 alias pix='flatpak run com.orama_interactive.Pixelorama'
 # alias fzf
 alias e='emacsclient -c'
-# alias hx='helix'
+alias hx='helix'
 alias c='cargo'
-alias pn='pnpm'
+alias sdkmanager='~/.android_sdk/cmdline-tools/latest/bin/sdkmanager'
+
 # alias xi='sudo xbps-install'
 # alias xq='xbps-query'
 alias p='doas pacman'
@@ -101,6 +102,11 @@ alias qwerty='hyprctl --batch "keyword input:kb_layout us ; keyword input:kb_var
 alias mm='hyprctl --batch "keyword input:kb_layout mm "'
 ################################################################################
 
+export ANDROID_HOME=$HOME/Android/Sdk
+# export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+# export PATH=$PATH:$JAVA_HOME
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.local/share
 # export DENO_INSTALL="/home/chaeng/.deno"
@@ -148,3 +154,7 @@ esac
 
 # Turso
 export PATH="/home/chaeng/.turso:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

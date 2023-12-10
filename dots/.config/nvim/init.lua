@@ -15,19 +15,31 @@ require('lazy').setup({
   -- Git related plugins
   --'tpope/vim-fugitive',
   --'tpope/vim-rhubarb',
+  {
+    'saecki/crates.nvim',
+    tag = 'stable',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('crates').setup()
+    end,
+  },
   'simrat39/rust-tools.nvim',
-  'scalameta/nvim-metals',
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+  },
+  -- 'scalameta/nvim-metals',
   requires = { "nvim-lua/plenary.nvim" },
   "windwp/nvim-ts-autotag",
   -- 'mfussenegger/nvim-jdtls',
-
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-  "zeioth/garbage-day.nvim",
-  event = "VeryLazy",
-  opts = {
-    -- your options here
-  },
+  -- "zeioth/garbage-day.nvim",
+  -- event = "VeryLazy",
+  -- opts = {
+  --   -- your options here
+  -- },
   {
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -51,13 +63,36 @@ require('lazy').setup({
       'rafamadriz/friendly-snippets',
     },
   },
+  'brenoprata10/nvim-highlight-colors',
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    }
+  },
   -- "rebelot/kanagawa.nvim",
   -- "rose-pine/neovim",
   'catppuccin/nvim',
-  { "savq/melange-nvim" },
+  -- {
+  --   "craftzdog/solarized-osaka.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {},
+  -- },
+  -- {
+  --   "fynnfluegge/monet.nvim",
+  --   name = "monet",
+  -- },
+  -- 'luisiacc/gruvbox-baby',
+
+  -- { "savq/melange-nvim" },
   -- 'folke/tokyonight.nvim',
   -- {
-  --   "nyoom-engineering/oxocarbon.nvim",
+  -- "nyoom-engineering/oxocarbon.nvim",
   --   config = function()
   --   end,
   -- },
@@ -105,7 +140,7 @@ vim.o.smartcase = true
 vim.opt.scrolloff = 8
 -- Decrease update time
 vim.o.updatetime = 250
-vim.o.timeoutlen = 300
+vim.o.timeoutlen = 2000
 vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 vim.opt.cursorline = true
@@ -121,14 +156,18 @@ vim.opt.backup = false
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.scrolloff = 8
+vim.opt.foldmethod = "manual"
+-- vim.foldexpr = "nvim_treesitter#foldexpr()"
 -- vim.wo.signcolumn = 'yes:1'
 vim.opt.signcolumn = "no"
 -- vim.opt.isfname:append("@-@")
 vim.cmd([[
     filetype plugin on
     autocmd BufNewFile,BufRead *.v set ft=v
-    autocmd TermOpen * setlocal nonumber norelativenumber
+    " autocmd TermOpen * setlocal nonumber norelativenumber
 ]])
+-- Disable folding in Telescope's result window.
+vim.api.nvim_create_autocmd("FileType", { pattern = "TelescopeResults", command = [[setlocal nofoldenable]] })
 -- vim.g.codeium_enabled = false
 -- vim.opt.colorcolumn = "90"
 -- The line beneath this is called `modeline`. See `:help modeline`
@@ -163,12 +202,12 @@ vim.keymap.set("i", "<C-B>", "<Left>")
 vim.keymap.set("i", "<C-E>", "<ESC>A")
 vim.keymap.set("n", "H", ":bp<CR>")
 vim.keymap.set("n", "L", ":bn<CR>")
-vim.keymap.set("n", "<leader>v", ":Ex<CR>")
-vim.keymap.set("n", "p", "p==")
+-- vim.keymap.set("n", "<leader>v", ":Ex<CR>")
+vim.keymap.set("n", "<leader>v", ":Neotree toggle position=right<CR>")
 vim.keymap.set("n", "<C-j>", ":cnext<CR>zz")
 vim.keymap.set("n", "<C-k>", ":cprev<CR>zz")
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true }) -- Remap for dealing with word wrap
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true }) -- Remap for dealing with word wrap
+-- vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -212,7 +251,7 @@ vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]resume' })
+vim.keymap.set('n', '<leader>sr', require('telescope.builtin').lsp_references, { desc = '[S]earch [R]eferences' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>t', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
@@ -220,6 +259,9 @@ vim.keymap.set('n', '<leader>n', vim.diagnostic.goto_next, { desc = 'Go to next 
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+
+require('nvim-highlight-colors').setup {}
+local rt = require("rust-tools")
 local on_attach = function(_, bufnr)
   local nmap = function(keys, func, desc)
     if desc then
@@ -230,6 +272,8 @@ local on_attach = function(_, bufnr)
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+  vim.keymap.set("n", "K", rt.hover_actions.hover_actions, { buffer = bufnr })
+  vim.keymap.set("n", "<Leader>ca", rt.code_action_group.code_action_group, { buffer = bufnr })
   -- snoremap <silent> <C-d> <cmd>lua require('luasnip').jump(1)<Cr>
   -- snoremap <silent> <C-r> <cmd>lua require('luasnip').jump(-1)<Cr>
 
@@ -240,7 +284,7 @@ local on_attach = function(_, bufnr)
   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+  nmap('<leader>k', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
   nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
@@ -254,43 +298,26 @@ local on_attach = function(_, bufnr)
 end
 
 local servers = {
-  rust_analyzer = {},
-  ocamllsp = {},
-  volar = {},
-  clangd = {},
+  -- rust_analyzer = {},
+  -- ocamllsp = {},
+  -- jdtls = {},
+  -- volar = {},
+  -- clangd = {},
+  -- kotlin_language_server = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  eslint = {
+  },
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
+      diagnostics = {
+        disable = { "missing-fields" },
+      },
       telemetry = { enable = false },
     },
   },
 }
 
--- local java_config = {
---     cmd = {'/home/chaeng/.local/share/nvim/mason/packages/jdtls/jdtls'},
---     root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
--- }
--- require('jdtls').start_or_attach(java_config)
-
--- Setup neovim lua configuration
-require('neodev').setup()
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-local mason_lspconfig = require 'mason-lspconfig'
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
-}
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
-  end
-}
 
 local opts = {
   tools = {
@@ -322,6 +349,42 @@ local opts = {
     },
   },
 }
+
+
+rt.setup({
+  opts,
+  on_attach = on_attach,
+})
+-- Setup neovim lua configuration
+--
+require('neodev').setup()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+local mason_lspconfig = require 'mason-lspconfig'
+mason_lspconfig.setup {
+  ensure_installed = vim.tbl_keys(servers),
+}
+
+-- local java_config = {
+--   cmd = { '/usr/bin/jdtls' },
+--   root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]),
+--   capabilities = capabilities,
+--   on_attach = on_attach
+-- }
+--
+-- require('jdtls').start_or_attach(java_config)
+
+mason_lspconfig.setup_handlers {
+  function(server_name)
+    require('lspconfig')[server_name].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = servers[server_name],
+      filetypes = (servers[server_name] or {}).filetypes,
+    }
+  end
+}
+
 --
 -- vim.api.nvim_set_hl(0, "MyNormal", { bg = "None", fg = "White" })
 -- vim.api.nvim_set_hl(0, "MyFloatBorder", { bg = "None", fg = "White" })
@@ -332,8 +395,6 @@ local opts = {
 -- vim.api.nvim_set_hl(0, "CmpItemKind", { bg = "None", fg = "#ffffff" })
 -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { bg = "None", fg = "Red" })
 -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { bg = "None", fg = "#ffffff" })
-
-require("rust-tools").setup(opts)
 
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
@@ -388,6 +449,7 @@ cmp.setup {
     { name = 'luasnip' },
     { name = 'path' },
     { name = 'buffer' },
+    { name = 'crates' },
   },
 }
 
@@ -465,17 +527,17 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   end
 })
 
-vim.cmd.colorscheme('melange')
-vim.cmd.background = 'dark'
+vim.cmd.colorscheme('retrobox')
+-- vim.cmd.background = 'dark'
 vim.api.nvim_set_hl(0, "Normal", { bg = "None", fg = "#ffffff" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None", fg = "#ffffff" })
 -- vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#ffffff", bg = "#ffffff" })
-vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "None" })
-vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "None" })
-vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "None" })
-vim.api.nvim_set_hl(0, "StatusLine", { bg = "None" })
-vim.api.nvim_set_hl(0, "Special", { fg = "None" })
-vim.api.nvim_set_hl(0, "NormalNC", { bg = "None" })
-vim.api.nvim_set_hl(0, "SignColumn", { bg = "None" })
-vim.api.nvim_set_hl(0, "LineNr", { bg = "None" })
+-- vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "None" })
+-- vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "None" })
+-- vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "None" })
+-- vim.api.nvim_set_hl(0, "StatusLine", { bg = "None" })
+-- vim.api.nvim_set_hl(0, "Special", { fg = "None" })
+-- vim.api.nvim_set_hl(0, "NormalNC", { bg = "None" })
+-- vim.api.nvim_set_hl(0, "SignColumn", { bg = "None" })
+-- vim.api.nvim_set_hl(0, "LineNr", { bg = "None" })
 -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None", fg = "#ffffff" })

@@ -5,11 +5,32 @@
     "width": 5, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    // "modules-left": ["wlr/workspaces", "wlr/mode", "custom/media", "wlr/window"],
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/media", "sway/window"],
+    "modules-left": ["hyprland/workspaces", "wlr/mode", "custom/media", "wlr/window"],
+    // "modules-left": ["sway/workspaces", "sway/mode", "custom/media", "sway/window"],
     "modules-center": ["clock"],
     "modules-right": [ "tray","battery", "pulseaudio"],
     // Modules configuration
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "0": "十",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        },
+      "on-scroll-up": "hyprctl dispatch workspace e+1",
+      "on-scroll-down": "hyprctl dispatch workspace e-1",
+      "on-click": "activate"
+    },
     "sway/window": {
         "max-length": 150,
         "rotate": 90

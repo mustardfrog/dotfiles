@@ -116,8 +116,8 @@ scheBlockmes:
       # hard contrast background - '#1d2021'
       #background: &gruvbox_dark_bg '#282828'
       #
-      #background: '#1d2021'
-      background: '#282828'
+      background: '#1d2021'
+      # background: '#282828'
       # soft contrast background - '#32302f'
       foreground:        '#ebdbb2'
       bright_foreground: '#fbf1c7'
@@ -237,8 +237,10 @@ scheBlockmes:
     # Default colors
     primary:
       # background: '#0f0f0f'
-      background: '#161616'
-      foreground: '#eaeaea'
+      background: '#0a0a0a'
+      # background: '#161616'
+      # foreground: '#eaeaea'
+      foreground: '#eeeeee'
 
     # Normal colors
     normal:
@@ -792,27 +794,28 @@ scheBlockmes:
 
 # RecMonoDuotone
 # Monaspace -> Neon, Krypton, Argon, Radon
+# Geist Mono
 font:
   normal:
-    family: CasCadiaCode
+    family: Lilex 
     style: Regular
   bold:
-    family: CasCadiaCode
+    family: Lilex 
     style: Bold
   italic:
-    family:  CasCadiaCode
+    family:  Lilex 
     style: Italic
   bold_italic:
-    family: CasCadiaCode
+    family: Lilex 
     style: Bold Italic
 
   size: 11
 
 window:
-  opacity: 1
+  opacity: 0.9
   decoration: none
   padding:
     x: 17
     y: 0
     # dynamic_padding: true
-colors: *melange
+colors: *gruvbox

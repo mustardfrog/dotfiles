@@ -25,7 +25,7 @@ default_floating_border pixel 2
 exec --no-startup-id dex --autostart --environment sway
 bindsym $mod+c exec makoctl dismiss
 exec_always mako
-exec_always fcitx5
+# exec_always fcitx5
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -233,8 +233,8 @@ bindsym $mod+Shift+S exec slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'gr
 # finds out, if available)
 bar {
     status_command i3status-rs /home/chaeng/.config/i3status-rust/config.toml
-    status_command waybar
-    mode hide
+    # status_command waybar
+    # mode hide
         colors {
             # light
             # background #eeeeee
@@ -300,7 +300,6 @@ exec swayidle -w \
          resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 000000'
 # output "*" bg #313244 solid_color
-# output "*" bg ~/Pictures/wallpapers/red_girl.jpg fill
-# output "*" bg ~/Pictures/wallpapers/sino_girl.jpg fill
+output "*" bg ~/Pictures/wallpapers/gruvbox_princess.png fill
 # output "*" bg ~/Pictures/wallpapers/mono_prime.jpg fill
 # exec swaybg -m fill -i ~/Pictures/wallpapers/wallhaven-panda-forest.jpg &
