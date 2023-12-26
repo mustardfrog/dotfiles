@@ -1,31 +1,31 @@
 
-.nemo-window .sidebar .view {
-    background-color: #1d2021;
-    color: #ebdbb2;
-    border: none;
-}
-
-.nemo-window .view {
-    /* background-color: #aacc99; */
-    background-color: #1d2021;
-    color: #ebdbb2;
-}
-.nemo-window .view *:selected {
-    background-color: #eebd35;
-    color: #000;
-}
-
-.nemo-window {
-    /* background-color: #afbc99; */
-    background-color: #504945;
-    color: #ebdbb2;
-}
-
-.nemo-window toolbar {
-    /* background-color: #bbcf99; */
-    background-color: #171a1a;
-    color: #ebdbb2;
-}
+/* .nemo-window .sidebar .view { */
+/*     background-color: #1d2021; */
+/*     color: #ebdbb2; */
+/*     border: none; */
+/* } */
+/**/
+/* .nemo-window .view { */
+/*     /* background-color: #aacc99; */ */
+/*     background-color: #1d2021; */
+/*     color: #ebdbb2; */
+/* } */
+/* .nemo-window .view *:selected { */
+/*     background-color: #eebd35; */
+/*     color: #000; */
+/* } */
+/**/
+/* .nemo-window { */
+/*     /* background-color: #afbc99; */ */
+/*     background-color: #504945; */
+/*     color: #ebdbb2; */
+/* } */
+/**/
+/* .nemo-window toolbar { */
+/*     /* background-color: #bbcf99; */ */
+/*     background-color: #171a1a; */
+/*     color: #ebdbb2; */
+/* } */
 
 .sidebar {
     background: #0c0c0c;

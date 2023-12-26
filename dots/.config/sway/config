@@ -73,16 +73,17 @@ bindsym $mod+Shift+b workspace prev
 for_window [title="\ -\ Sharing\ Indicator$"] floating enable, sticky enable
 #for_window [title="firefox"] sticky enable
 for_window [title="qemu"] floating enable
-for_window [title="Godot"] floating enable
 for_window [class="kitty"] floating enable
 for_window [class="OpenGL"] floating enable 
 for_window [title="Bevy App"] floating enable 
 for_window [title="Floating Window"] floating enable 
 for_window [title="\ -\ Sharing\ Indicator$"] floating enable, sticky enable
 # for_window [title="\ -\(DEBUG)"] floating enable 
-for_window [title="Godot"] floating enable 
+# for_window [title="Godot"] floating enable 
+for_window [title="Create New Node"] floating enable 
+for_window [instance="Godot_Engine"] floating enable
+for_window [class="Godot"] floating enable
 for_window [title="hello"] floating enable 
-for_window [title="qemu"] floating enable
 for_window [title="Blender Render"] floating enable
 for_window [title="Meeting Chat" instance="zoom"] floating enable
 for_window [class="sdl" instance="sdl"] floating enable
@@ -300,6 +301,6 @@ exec swayidle -w \
          resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 000000'
 # output "*" bg #313244 solid_color
-output "*" bg ~/Pictures/wallpapers/gruvbox_princess.png fill
-# output "*" bg ~/Pictures/wallpapers/mono_prime.jpg fill
+output "*" bg ~/Pictures/wallpapers/platform.jpg fill
+# output "*" bg ~/Pictures/wallpapers/anime-girl-smile.png fill
 # exec swaybg -m fill -i ~/Pictures/wallpapers/wallhaven-panda-forest.jpg &
