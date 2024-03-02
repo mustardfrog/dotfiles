@@ -21,7 +21,7 @@ default_border pixel 1
 # for_window [class=".*"] border pixel 0
 #default_border none
 #hide_edge_borders vertical
-default_floating_border pixel 1
+default_floating_border pixel 2
 # default_floating_border normal
 #new_window none
 
@@ -43,6 +43,7 @@ exec_always picom
 # exec_always fcitx5
 # exec_always --no-startup-id back4.sh 0.03 $HOME/Pictures/pixel_snow_mountain.gif
 # exec_always feh --bg-fill $HOME/Pictures/wallpapers/
+exec_always feh --bg-fill $HOME/Pictures/wallpapers/samuraiautumn.png
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -68,8 +69,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl  set +5% # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 3%-# decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl  set +3% # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-# decrease screen brightness
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -257,7 +258,7 @@ bar {
 gaps outer 3
 gaps inner 2
 
-smart_borders on
+# smart_borders on
 smart_gaps on
 
 #<colorclass> <border> <background> <text> <indicator> <child_border>

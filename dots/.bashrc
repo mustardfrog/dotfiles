@@ -18,7 +18,7 @@ _set_liveuser_PS1() {
         fi
     fi
 }
-_set_liveuser_PS1
+# _set_liveuser_PS1
 unset -f _set_liveuser_PS1
 
 ShowInstallerIsoInfo() {
@@ -89,7 +89,8 @@ alias pix='flatpak run com.orama_interactive.Pixelorama'
 alias e='emacsclient -c'
 alias hx='helix'
 alias c='cargo'
-alias sdkmanager='~/.android_sdk/cmdline-tools/latest/bin/sdkmanager'
+# alias sdkmanager='~/.android_sdk/cmdline-tools/latest/bin/sdkmanager'
+# alias odin='~/projects/odin/Odin/odin'
 
 # alias xi='sudo xbps-install'
 # alias xq='xbps-query'
@@ -103,6 +104,9 @@ alias mm='hyprctl --batch "keyword input:kb_layout mm "'
 ################################################################################
 
 export ANDROID_HOME=$HOME/Android/Sdk
+export XDG_CURRENT_DESKTOP=sway
+export QT_QPA_PLATFORM=wayland
+
 # export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 # export PATH=$PATH:$JAVA_HOME
 export PATH=$PATH:$ANDROID_HOME/emulator
@@ -137,12 +141,14 @@ export PATH="$HOME/.moon/bin:$PATH"
 # bun
 # export PATH="$HOME/.cargo/env"
 export BUN_INSTALL="$HOME/.bun"
+export ODIN_ROOT="$HOME/projects/odin/Odin"
 export PATH="$BUN_INSTALL/bin:$PATH"
 #export TERM=xterm-256color-italic
 #alias dotfiles='/usr/bin/git --git-dir=/home/archmonkey/.dotfiles/ --work-tree=/home/archmonkey'
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
-PS1='\[$(tput setaf 1)\]\W > \[$(tput setaf sgr0)\]'
+# PS1='\[$(tput setaf 1)\]\W > \[$(tput setaf sgr0)\]'
+PS1="\W:: "
 
 # pnpm
 export PNPM_HOME="/home/chaeng/.local/share/pnpm"

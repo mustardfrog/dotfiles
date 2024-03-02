@@ -32,6 +32,8 @@ cmd open ${{
 
 cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
 
+map A mkdir
+
 cmd extract ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
@@ -41,7 +43,7 @@ cmd extract ${{
 	[ $ans = "y" ] && aunpack $fx
 }}
 # map <delete> trash
-# map <delete> delete
+map <c-t> push $touch<space>
 
 cmd delete ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
@@ -52,6 +54,7 @@ cmd delete ${{
 	[ $ans = "y" ] && rm -rf -- $fx
 }}
 
+map <backspace2> delete
 cmd set_wallpaper ${{
 	set -f
 	printf "Flie: " "$fx"
@@ -69,7 +72,7 @@ map O $mimeopen --ask $f
 
 map P set_wallpaper
 
-map A rename # at the very end
+# map A rename # at the very end
 map c push A<c-u> # new rename
 map I push A<c-a> # at the very beginning
 map i push A<a-b><a-b><a-f> # before extention

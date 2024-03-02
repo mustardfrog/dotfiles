@@ -1,0 +1,311 @@
+# # custom_cursor_colors = false
+#
+# [colors.bright]
+# black = "#666666"
+# blue = "#7aa6da"
+# cyan = "#54ced6"
+# green = "#9ec400"
+# magenta = "#b77ee0"
+# red = "#ff3334"
+# white = "#2a2a2a"
+# yellow = "#e7c547"
+#
+# [colors.normal]
+# black = "#000000"
+# blue = "#7aa6da"
+# cyan = "#70c0ba"
+# green = "#b9ca4a"
+# magenta = "#c397d8"
+# red = "#d54e53"
+# white = "#424242"
+# yellow = "#e6c547"
+#
+# [colors.primary]
+# background = "#100f0f"
+# foreground = "#eeeeee"
+#
+[cursor.style]
+shape = "Block"
+
+[font]
+size = 12.7
+
+[font.normal]
+# family = "MxPlus IBM VGA 8x16"
+family = "Geist Mono"
+style = "Regular"
+[font.bold]
+family = "Geist Mono"
+style = "Bold"
+[font.bold_italic]
+family = "Geist Mono"
+style = "Bold Italic"
+[font.italic]
+family = "Geist Mono"
+style = "Italic"
+
+
+# Campbell (Windows 10 default)
+
+# Default colors
+#[colors.primary]
+#background = '#0c0c0c'
+#foreground = '#cccccc'
+
+ #Normal colors
+#[colors.normal]
+#black      = '#0c0c0c'
+#red        = '#c50f1f'
+#green      = '#13a10e'
+#yellow     = '#c19c00'
+#blue       = '#0037da'
+#magenta    = '#881798'
+#cyan       = '#3a96dd'
+#white      = '#cccccc'
+
+ #Bright colors
+#[colors.bright]
+#black      = '#767676'
+#red        = '#e74856'
+#green      = '#16c60c'
+#yellow     = '#f9f1a5'
+#blue       = '#3b78ff'
+#magenta    = '#b4009e'
+#cyan       = '#61d6d6'
+#white      = '#f2f2f2'
+# Default colors
+#[colors.primary]
+#background = '#171d23'
+#foreground = '#ffffff'
+
+## Cursor colors
+#[colors.cursor]
+#text   = '#fafafa'
+#cursor = '#008b94'
+
+## Normal colors
+#[colors.normal]
+#black   = '#333f4a'
+#red     = '#d95468'
+#green   = '#8bd49c'
+#blue    = '#539afc'
+#magenta = '#b62d65'
+#cyan    = '#70e1e8'
+#white   = '#b7c5d3'
+
+## Bright colors
+#[colors.bright]
+#black   = '#41505e'
+#red     = '#d95468'
+#green   = '#8bd49c'
+#yellow  = '#ebbf83'
+#blue    = '#5ec4ff'
+#magenta = '#e27e8d'
+#cyan    = '#70e1e8'
+#white   = '#ffffff'
+
+
+#Colors (Everforest Dark)
+#Default colors
+#[colors.primary]
+#background = '#2d353b'
+#foreground = '#d3c6aa'
+
+# Normal colors
+#[colors.normal]
+#black   = '#475258'
+#red     = '#e67e80'
+#green   = '#a7c080'
+#yellow  = '#dbbc7f'
+#blue    = '#7fbbb3'
+#magenta = '#d699b6'
+#cyan    = '#83c092'
+#white   = '#d3c6aa'
+
+## Bright colors
+#[colors.bright]
+#black   = '#475258'
+#red     = '#e67e80'
+#green   = '#a7c080'
+#yellow  = '#dbbc7f'
+#blue    = '#7fbbb3'
+#magenta = '#d699b6'
+#cyan    = '#83c092'
+#white   = '#d3c6aa'
+
+
+# based on https//stephango.com/flexoki and https//github.com/kepano/flexoki/tree/main/alacritty
+# Default colors
+
+#[colors.primary]
+#background = '#282726'
+#foreground = '#FFFCF0'
+#dim_foreground = '#FFFCF0'
+#bright_foreground = '#FFFCF0'
+
+## Cursor colors
+#[colors.cursor]
+#text = '#FFFCF0'
+#cursor = '#FFFCF0'
+
+# Normal colors
+#[colors.normal]
+#black = '#100F0F'
+#red = '#AF3029'
+#green = '#66800B'
+#yellow = '#AD8301'
+#blue = '#205EA6'
+#magenta = '#A02F6F'
+#cyan = '#24837B'
+#white = '#FFFCF0'
+
+## Bright colors
+#[colors.bright]
+#black = '#100F0F'
+#red = '#D14D41'
+#green = '#879A39'
+#yellow = '#D0A215'
+#blue = '#4385BE'
+#magenta = '#CE5D97'
+#cyan = '#3AA99F'
+#white = '#FFFCF0'
+
+## Dim colors
+#[colors.dim]
+#black = '#100F0F'
+#red = '#AF3029'
+#green = '#66800B'
+#yellow = '#AD8301'
+#blue = '#205EA6'
+#magenta = '#A02F6F'
+#cyan = '#24837B'
+#white = '#FFFCF0'
+
+
+# github Alacritty Colors
+
+# Default colors
+#[colors.primary]
+##background = '#ffffff'
+#background = '#d7d7d7'
+#foreground = '#24292f'
+
+## Normal colors
+#[colors.normal]
+#black   = '#24292e'
+#red     = '#d73a49'
+#green   = '#28a745'
+#yellow  = '#dbab09'
+#blue    = '#0366d6'
+#magenta = '#5a32a3'
+#cyan    = '#0598bc'
+#white   = '#6a737d'
+
+## Bright colors
+#[colors.bright]
+#black   = '#959da5'
+#red     = '#cb2431'
+#green   = '#22863a'
+#yellow  = '#b08800'
+#blue    = '#005cc5'
+#magenta = '#5a32a3'
+#cyan    = '#3192aa'
+#white   = '#d1d5da'
+
+#[[colors.indexed_colors]]
+#index = 16
+#color = '#d18616'
+
+#[[colors.indexed_colors]]
+#index = 17
+#color = '#cb2431'
+
+# Colors (Kanagawa Wave)
+# Source https//github.com/rebelot/kanagawa.nvim
+
+# [colors.primary]
+# background = '#1f1f28'
+#foreground = '#dcd7ba'
+
+#[colors.normal]
+#black   = '#090618'
+#red     = '#c34043'
+#green   = '#76946a'
+#yellow  = '#c0a36e'
+#blue    = '#7e9cd8'
+#magenta = '#957fb8'
+#cyan    = '#6a9589'
+#white   = '#c8c093'
+
+#[colors.bright]
+#black   = '#727169'
+#red     = '#e82424'
+#green   = '#98bb6c'
+#yellow  = '#e6c384'
+#blue    = '#7fb4ca'
+#magenta = '#938aa9'
+#cyan    = '#7aa89f'
+#white   = '#dcd7ba'
+
+#[colors.selection]
+#background = '#2d4f67'
+#foreground = '#c8c093'
+
+#[[colors.indexed_colors]]
+#index = 16
+#color = '#ffa066'
+
+#[[colors.indexed_colors]]
+#index = 17
+#color = '#ff5d62'
+
+# [colors.primary]
+#  #background = '#191724'
+#  #background = '#0f0f0f'
+# #background = '#161616'
+# background = '#171a1a'
+# foreground = '#e0def4'
+#
+# [colors.cursor]
+# text = '#e0def4'
+# cursor = '#524f67'
+#
+# [colors.vi_mode_cursor]
+# text = '#e0def4'
+# cursor = '#524f67'
+#
+# [colors.selection]
+# text = '#e0def4'
+# background = '#403d52'
+#
+# [colors.normal]
+# black = '#26233a'
+# red = '#eb6f92'
+# green = '#31748f'
+# yellow = '#f6c177'
+# blue = '#9ccfd8'
+# magenta = '#c4a7e7'
+# cyan = '#ebbcba'
+# white = '#e0def4'
+#
+# [colors.bright]
+# black = '#6e6a86'
+# red = '#eb6f92'
+# green = '#31748f'
+# yellow = '#f6c177'
+# blue = '#9ccfd8'
+# magenta = '#c4a7e7'
+# cyan = '#ebbcba'
+# white = '#e0def4'
+#
+# [colors.hints]
+# start = {foreground = '#908caa', background = '#1f1d2e' }
+# end = { foreground = '#6e6a86', background = '#1f1d2e' }
+
+[window]
+# # decoration = "none"
+opacity = 1
+#
+[window.padding]
+x = 17
+y = 0
