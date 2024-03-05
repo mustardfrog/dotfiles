@@ -1,3 +1,6 @@
-### Cozy Rice
+### Useless Rice
 
-![Endevour!!](/images/2023_hypr_rice.png)
+- Alacritty / Foot
+- Sway
+- GTKs 
+- Shells
