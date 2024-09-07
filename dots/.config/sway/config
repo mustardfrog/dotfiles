@@ -6,7 +6,7 @@ set $mod4 Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font pango:IBM Plex Mono 10
-font pango:Input Mono 9
+font pango:Victor Mono 9
 
 # default_border pixel 2
 #hide_edge_borders vertical
@@ -25,6 +25,7 @@ default_floating_border pixel 2
 exec --no-startup-id dex --autostart --environment sway
 bindsym $mod+c exec makoctl dismiss
 exec_always mako
+# exec_always wlsunset -l 14.5 -L 120.9
 # exec_always fcitx5
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -40,7 +41,7 @@ exec_always mako
 exec --no-startup-id nm-applet
 exec systemctl --user import-environment
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec_always sh /home/chaeng/projects/bash/noti/battery_check.sh
+# exec_always sh /home/chaeng/projects/bash/noti/battery_check.sh
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -64,7 +65,8 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec foot
+bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+T exec wezterm
 bindsym $mod4+Return exec emacs
 # bindsym $mod+Shift+T exec kitty
 bindsym $mod4+n exec neovide
@@ -76,12 +78,15 @@ for_window [title="qemu"] floating enable
 for_window [class="kitty"] floating enable
 for_window [class="hl"] floating enable
 for_window [class="OpenGL"] floating enable 
+for_window [class="raylib"] floating enable 
+for_window [title="ray-timer"] floating enable 
 for_window [title="Bevy App"] floating enable 
 for_window [title="Floating Window"] floating enable 
 for_window [title="\ -\ Sharing\ Indicator$"] floating enable, sticky enable
 # for_window [title="\ -\(DEBUG)"] floating enable 
 # for_window [title="Godot"] floating enable 
 for_window [title="Create New Node"] floating enable 
+for_window [class="vlc"] floating enable
 for_window [instance="Godot_Engine"] floating enable
 for_window [class="Godot"] floating enable
 for_window [title="hello"] floating enable 
@@ -98,11 +103,12 @@ bindsym $mod+r sticky toggle
 bindsym $mod+Shift+w kill
 
 # start dmenu (a program launcher)
-# bindsym $mod+Shift+d exec --no-startup-id "wofi --show drun"
 # bindsym $mod+Shift+d exec --no-startup-id "bemenu-run"
-bindsym $mod+Shift+d exec --no-startup-id "wofi --show drun"
+# bindsym $mod+Shift+d exec --no-startup-id "wofi --show drun"
+bindsym $mod+Shift+d exec --no-startup-id "dmenu_run"
 bindsym $mod4+0 exec --no-startup-id "flatpak run md.obsidian.Obsidian"
-bindsym $mod4+9 exec --no-startup-id "~/projects/bash/wallpaper.sh"
+# bindsym $mod4+9 exec --no-startup-id "~/projects/bash/wallpaper.sh"
+bindsym $mod4+9 exec --no-startup-id "~/projects/bash/sway/random_wallpaper.sh"
 # A more modern dmenu replacement is rofi:
  #bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -230,13 +236,13 @@ mode "resize" {
 
 bindsym $mod+Shift+P mode "resize"
 # bindsym $mod+Shift+S exec slurp | grim -g - $(xdg-user-dir PICTURES/SCREENSHOTS)/$(date +'grim_%Y-%m-%d-%H%M%S.png')
-bindsym $mod+Shift+S exec slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'grim_%Y-%m-%d-%H%M%S.png')
+bindsym $mod+Shift+S exec slurp | grim -g - $(xdg-user-dir PICTURES)/Screenshots/$(date +'grim_%Y-%m-%d-%H%M%S.png')
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command i3status-rs /home/chaeng/.config/i3status-rust/config.toml
-    # status_command waybar
+    # status_command i3status-rs /home/chaeng/.config/i3status-rust/config.toml
+    status_command i3status
     # mode hide
         colors {
             # light
@@ -252,20 +258,23 @@ bar {
 
 
             # dark
-            background #000000
-                statusline #000000
-                separator #000000
+                # background #eb6f92
+                # statusline #eb6f92
+                # separator #eb6f92
+                background #000000
+                statusline #eeeeee
+                separator  #000000
                 #                   border background text
-                focused_workspace  #000000 #000000 #eeeeee
-                active_workspace   #eeeeee #eeeeee #000000
+                focused_workspace  #000000 #eeeeee #000000
+                active_workspace   #eeeeee #000000 #eeeeee
                 inactive_workspace #000000 #000000 #eeeeee
                 urgent_workspace   #2f343a #900000 #ffffff
                 binding_mode       #2f343a #900000 #ffffff
         }
 }
 
-gaps inner 6
-gaps outer 6
+gaps inner 4
+gaps outer 8
 # hide_edge_borders smart
 smart_gaps off
 
@@ -275,16 +284,16 @@ client.unfocused #111111 #111111  #a9a9a9  #ff8da1
 # client.focused #eeeeee #eeeeee  #000000  #000000
 # dark
 client.focused #000000 #000000  #eeeeee  #eeeeee
-# client.focused #1d2021 #1d2021  #eebd35  #0efece
+# client.focused #eebd35 #eebd35  #1d2021  #0efece
+# client.focused #ff8da1 #ff8da1  #111111  #ff8da1
 #seat seat0 xcursor_theme Adwaita 30
 
-
 input type:keyboard {
-    xkb_layout "us,us"
+    xkb_layout "us,us,mm"
     xkb_variant "dvorak,"
     # xkb_options grp:ctrls_toggle
     # xkb_options "grp:rctrl_rshift_toggle"
-    xkb_options "grp:win_space_toggle,ctrl:nocaps"
+    xkb_options "grp:win_space_toggle,ctrl:nocaps,lv3:ralt_alt"
     # xkb_options "ctrl:nocaps"
     # xkb_options grp:toggle
     # xkb_options grp:rctrl_rshift_toggle
@@ -299,10 +308,10 @@ input type:touchpad {
 
 exec swayidle -w \
          timeout 300 'swaylock -f -i ~/Pictures/wallpapers/train_ai.png fill' \
-         timeout 400 'swaymsg "output * dpms off"' \
+         timeout 600 'swaymsg "output * dpms off"' \
          resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 000000'
 # output "*" bg #000000 solid_color
-output "*" bg ~/Pictures/wallpapers/redFlowersTown.jpg fill
-# output *" bg ~/Pictures/wallpapers/samuraiautumn.png fill
-# output "*" bg ~/Pictures/wallpapers/blue_sakura_1.jpg fill
+# output "*" bg ~/Pictures/wallpapers/toman_mobius_fight.png fill
+# output "*" bg ~/Pictures/wallpapers/flower.jpg
+output "*" bg ~/Pictures/wallpapers/samuraigirl.png fill
