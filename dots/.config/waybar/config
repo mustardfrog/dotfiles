@@ -1,12 +1,12 @@
 {
     "layer": "top", // Waybar at top layer
-    "position": "left", // Waybar position (top|bottom|left|right)
-    //"height": 8, // Waybar height (to be removed for auto height)
-    "width": 5, // Waybar width
+    "position": "bottom", // Waybar position (top|bottom|left|right)
+    // "height": 4, // Waybar height (to be removed for auto height)
+    "width": 4, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "wlr/mode", "custom/media", "wlr/window"],
-    // "modules-left": ["sway/workspaces", "sway/mode", "custom/media", "sway/window"],
+    // "modules-left": ["hyprland/workspaces", "wlr/mode", "custom/media", "wlr/window"],
+    "modules-left": ["sway/workspaces", "wlr/mode", "custom/media", "sway/window"],
     "modules-center": ["clock"],
     "modules-right": [ "tray","battery", "pulseaudio"],
     // Modules configuration
@@ -33,7 +33,7 @@
     },
     "sway/window": {
         "max-length": 150,
-        "rotate": 90
+        "rotate": 360,
     },
     "wlr/workspaces" : {
         "format": "{icon}",
@@ -55,11 +55,11 @@
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1",
     "on-click" : "activate",
-    "rotate": 90,
+    "rotate": 180,
     },
     "sway/workspaces": {
         "disable-scroll": false,
-        "disable-click": true,
+        // "disable-click": true,
         "all-outputs": true,
         //"format": "{name}: {icon}",
         "format": "{icon}",
@@ -81,7 +81,7 @@
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1",
     "on-click" : "activate",
-    "rotate": 90,
+    "rotate": 180,
     },
     "keyboard-state": {
         "numlock": true,
@@ -137,7 +137,7 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         //"format-alt": "{:%Y-%m-%d}"
         "format": "{:%a, %d. %b  %H:%M}",
-        "rotate": 90
+        "rotate": 360,
     },
     "cpu": {
         "format": "{usage}% ",
@@ -172,7 +172,7 @@
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""],
-        "rotate": 90, 
+        "rotate": 360, 
     },
     "battery#bat2": {
         "bat": "BAT2"
@@ -185,7 +185,7 @@
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "rotate": 90,
+        "rotate": 360,
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -205,7 +205,7 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol",
-        "rotate": 90,
+        "rotate": 360,
     },
     "custom/media": {
         "format": "{icon} {}",
