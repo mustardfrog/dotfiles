@@ -5,21 +5,30 @@
 shape = "Block"
 
 [font]
-size = 12.6
+size = 14
 
 [font.normal]
 # family = "MxPlus IBM VGA 8x16"
-# family = "InputMonoNarrow"
-family = "InputMonoCondensed"
+# family = "MxPlus IBM VGA 8x14"
+# family = "MxPlus HP 100LX 6x8"
+# family = "Mx437 HP 100LX 6x8"
+# family = "InputMonoCondensed"
+# family = "Code New Roman Nerd Font"
+# family = "IosevkaComfyMotion"
+# family = "IosevkaComfyMotion"
+# family = "Commit Mono"
+# family = "RobotoCondensed"
+family = "UbuntuMono"
 style = "Regular"
 [font.bold]
-family = "InputMonoCondensed"
+# family = "MxPlus HP 100LX 10x11"
+#family = "Code New Roman Nerd Font"
 style = "Bold"
 [font.bold_italic]
-family = "InputMonoCondensed"
+# family = "Code New Roman Nerd Font"
 style = "Bold Italic"
 [font.italic]
-family = "InputMonoCondensed"
+# family = "Code New Roman Nerd Font"
 style = "Italic"
 
 [window]
@@ -27,5 +36,5 @@ style = "Italic"
 opacity = 0.9
 #
 [window.padding]
-x = 20
+x = 25
 y = 6

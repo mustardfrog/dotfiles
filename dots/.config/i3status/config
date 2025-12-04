@@ -11,7 +11,7 @@
 general {
         output_format = "i3bar"
         colors = true
-        color_good =     '#22ddcc'  
+        color_good =     '#6c782e'  
         color_degraded = '#dd9933'  
         color_bad =      '#aa5566'
         # interval = 5
@@ -85,5 +85,6 @@ volume master {
 }
 
 tztime local {
-        format = " %a %b %d [%H:%M:%S] "
+        # format = " %a %b %d [%H:%M:%S] "
+        format = " %a %b %d [%I:%M:%S %p] "
 }

@@ -5,8 +5,8 @@ HISTSIZE=800
 SAVEHIST=800
 
 bindkey -e
-bindkey -s '^r' 'lf^M'
-bindkey -s '^v' 'bash ~/projects/bash/fzf_tmux_dir/fzf.sh\n'
+# bindkey -s '^r' 'lf^M'
+# bindkey -s '^v' 'bash ~/projects/bash/fzf_tmux_dir/fzf.sh\n'
 
 autoload -Uz vcs_info
 precmd() { vcs_info }
@@ -41,23 +41,26 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
 alias e='emacsclient -c'
+alias mn='NVIM_APPNAME=minimal_nvim nvim'
 alias c='cargo'
 alias hx='helix'
 alias g='g++ -std=c++17'
 alias ls='ls --color=auto'
+alias n='nvim'
 alias ll='ls --color=auto -al'
 alias odin="$HOME/projects/odin/Odin/odin"
 alias dlv="$HOME/go/bin/dlv"
+alias kill_tmux='kill $(ps -e | rg tmux | awk '{print $1}')'
 # alias dvorak='hyprctl --batch "keyword input:kb_layout us ; keyword input:kb_variant dvorak"'
 # alias qwerty='hyprctl --batch "keyword input:kb_layout us ; keyword input:kb_variant mac"'
 # alias mm='hyprctl --batch "keyword input:kb_layout mm "'
 
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
 [ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
