@@ -76,3 +76,4 @@ window.thunar paned grid {
 window.thunar toolbar {
   padding: 5px 0;
 }
+@import 'colors.css';

@@ -1,0 +1,250 @@
+-- { dir = "/home/chaeng/fun/scooby_blue", lazy = true },
+-- {
+--   'saecki/crates.nvim',
+--   tag = 'stable',
+--   dependencies = { 'nvim-lua/plenary.nvim' },
+--   config = function()
+--     require('crates').setup()
+--   end,
+-- },
+-- 'simrat39/rust-tools.nvim',
+-- {
+--   "pmizio/typescript-tools.nvim",
+--   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+--   opts = {},
+-- },
+-- {
+--   "scalameta/nvim-metals",
+--   dependencies = {
+--     "nvim-lua/plenary.nvim",
+--   },
+--   ft = { "scala", "sbt" },
+--   opts = function()
+--     local metals_config = require("metals").bare_config()
+--     metals_config.on_attach = function(client, bufnr)
+--       -- your on_attach function
+--     end
+--
+--     return metals_config
+--   end,
+--   config = function(self, metals_config)
+--     local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
+--     vim.api.nvim_create_autocmd("FileType", {
+--       pattern = self.ft,
+--       callback = function()
+--         require("metals").initialize_or_attach(metals_config)
+--       end,
+--       group = nvim_metals_group,
+--     })
+--   end
+-- },
+--{
+--   dir = "/home/chaeng/fun/pinkish_day",
+--   lazy = true,
+--   config = function()
+--   end
+-- },
+
+-- "windwp/nvim-ts-autotag",
+-- 'mfussenegger/nvim-jdtls',
+-- Detect tabstop and shiftwidth automatically
+-- "zeioth/garbage-day.nvim",
+-- event = "VeryLazy",
+-- opts = {
+--   -- your options here
+-- },
+-- {
+--   'ribru17/bamboo.nvim',
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     require('bamboo').setup {
+--       -- optional configuration here
+--     }
+--     require('bamboo').load()
+--   end,
+-- },
+-- {
+--   "ThePrimeagen/harpoon",
+--   -- branch = "harpoon2",
+--   dependencies = { "nvim-lua/plenary.nvim" }
+-- },
+--
+-- 'altermo/nxwm',
+-- {
+--   "rose-pine/neovim",
+--   enable = false,
+--   config = function()
+--     require("rose-pine").setup({
+--       styles = {
+--         italic = true,
+--       },
+--     })
+--   end
+-- },
+-- {
+--   "neanias/everforest-nvim",
+--   -- version = false,
+--   lazy = false,
+--   priority = 1000, -- make sure to load this before all the other start plugins
+--   -- Optional; default configuration will be used if setup isn't called.
+--   config = function()
+--     require("everforest").setup({
+--       -- Your config here
+--     })
+--   end,
+-- },
+-- {
+--   "myypo/borrowed.nvim",
+--   lazy = false,
+--   priority = 1000,
+--
+--   version = '^0', -- Optional: avoid upgrading to breaking versions
+--
+--   config = function()
+--     -- require("borrowed").setup({ ... }) -- Optional: only has to be called to change settings
+--
+--     -- If you are changing the config, colorscheme command has to be called after setup()
+--     -- vim.cmd("colorscheme mayu"), -- OR vim.cmd("colorscheme shin")
+--   end,
+-- },
+-- 'navarasu/onedark.nvim',
+-- {
+-- "olimorris/onedarkpro.nvim",
+--   priority = 1000 -- Ensure it loads first
+-- },
+-- {
+--   "craftzdog/solarized-osaka.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   opts = function()
+--     return {
+--       transparent = true,
+--     }
+--   end,
+-- },
+-- 'luisiacc/gruvbox-baby',
+
+-- { "savq/melange-nvim" },
+-- 'rktjmp/lush.nvim',
+-- {
+--   'AlexvZyl/nordic.nvim',
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     require 'nordic'.load()
+--   end
+-- },
+-- 'shaunsingh/nord.nvim',
+-- {
+--     'uloco/bluloco.nvim',
+--     lazy = false,
+--     priority = 1000,
+--     dependencies = { 'rktjmp/lush.nvim' },
+--     config = function()
+--         -- your optional config goes here, see below.
+--     end,
+-- },
+-- 'oahlen/iceberg.nvim',
+--
+-- "rebelot/kanagawa.nvim",
+-- 'catppuccin/nvim',
+-- 'Shatur/neovim-ayu',
+-- { 'kepano/flexoki-neovim', name = 'flexoki' },
+-- {
+--   "fynnfluegge/monet.nvim",
+--   name = "monet",
+-- },
+-- {
+--   "nyoom-engineering/oxocarbon.nvim",
+--   config = function()
+--   end,
+-- },
+-- {
+  -- 'mustardfrog/pinkish_day',
+--   lazy = false,
+--   dependencies = { 'rktjmp/lush.nvim' },
+-- },
+-- {
+--   'maxmx03/dracula.nvim',
+-- },
+-- { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
+-- { 'numToStr/Comment.nvim', opts = {} },
+--
+--
+--
+--
+--
+
+
+
+-- local harpoon = require("harpoon")
+
+-- REQUIRED
+-- harpoon:setup()
+-- REQUIRED
+
+-- vim.keymap.set("n", "<leader>o", function() harpoon:list():append() end)
+-- vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+
+-- vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
+-- vim.keymap.set("n", "<C-t>", function() harpoon:list():select(2) end)
+-- vim.keymap.set("n", "<C-n>", function() harpoon:list():select(3) end)
+-- vim.keymap.set("n", "<C-s>", function() harpoon:list():select(4) end)
+-- vim.keymap.set("n", "<leader>5", function() harpoon:list():select(5) end)
+-- vim.keymap.set("n", "<leader>6", function() harpoon:list():select(6) end)
+-- vim.keymap.set("n", "<leader>7", function() harpoon:list():select(7) end)
+
+-- Toggle previous & next buffers stored within Harpoon list
+-- vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
+-- vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
+
+
+-- htmx set up
+-- ...
+-- lspconfig.htmx.setup {
+--   filetypes = {
+--     "templ"
+--   },
+-- }
+-- local java_config = {
+--   cmd = { '/home/chaeng/.local/share/nvim/mason/bin/jdtls' },
+--   root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]),
+--   capabilities = capabilities,
+--   on_attach = on_attach
+-- }
+--
+-- require('jdtls').start_or_attach(java_config)
+-- lspconfig.ccls.setup {
+--   init_options = {
+--     compilationDatabaseDirectory = "build",
+--     index = {
+--       threads = 0,
+--     },
+--     clang = {
+--       excludeArgs = { "-frounding-math" },
+--     },
+--   },
+--   on_attach = on_attach
+-- }
+--
+--
+
+
+
+
+-- Sync clipboard between OS and Neovim.
+-- vim.o.clipboard = 'unnamedplus'
+-- vim.o.breakindent = true
+--
+-- vim.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.opt.signcolumn = "yes"
+-- vim.opt.isfname:append("@-@")
+-- vim.o.guicursor = ''
+
+
+
+-- vim.g.codeium_enabled = false
+-- vim.opt.colorcolumn = "90"
+-- The line beneath this is called `modeline`. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et
