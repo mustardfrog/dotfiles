@@ -1,0 +1,25 @@
+default-timeout=10000
+font=Mx437HP100LX6x8 10
+background-color=#f4800b
+text-color=#ffffff
+# text-color=#000000
+border-color=#282828
+# border-color=#66cc55
+# background-color=#282828
+# text-color=#ebdbb2
+border-radius=3
+padding=10,10,10
+width=400
+height=1000
+
+[urgency=critical]
+font=GeistMono 15
+width=600
+height=600
+margin=10
+border-color=#ff0f0f
+background-color=#ff3040
+default-timeout=10000
+
+[urgency=high]
+# ignore-timeout=2
