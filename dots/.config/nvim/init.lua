@@ -1,3 +1,5 @@
-require("keymaps")
-require("config.lazy")
-require("options")
+require('options')
+require('keymaps')
+require('plugins')
+require('lsp')
+require('autocmd')

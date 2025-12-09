@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-file=$1
-
-if [[ "$( file -Lb --mime-type "$file")" =~ ^image ]]; then
-    echo $(file)
-fi
