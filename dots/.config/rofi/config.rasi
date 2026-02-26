@@ -1,0 +1,40 @@
+configuration {
+  // modes: "window,drun,run,ssh";
+  font: "GeistMono 13";
+  fixed-height: true;
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+}
+
+element {
+  orientation: horizontal;
+  children: [ element-text, element-icon ];
+  spacing: 5px;
+}
+
+window {
+  background-color: white;
+  border-color: rgb(8 81 156);
+  padding: 35px;
+}
+
+listview { 
+  lines: 7; 
+}
+
+
+entry, element-text  {
+  background-color: white;
+  text-color: rgb(107, 174, 213);
+}
+
+element-text selected {
+  background-color: rgb(107, 174, 213);
+  text-color: rgb(8, 81, 156);
+}

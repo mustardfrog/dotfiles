@@ -17,7 +17,7 @@ general {
         # interval = 5
 }
 
-order += "run_watch VPN"
+# order += "run_watch VPN"
 order += "wireless _first_"
 order += "run_watch DHCP"
 order += "battery 0"
@@ -73,7 +73,7 @@ cpu_temperature 0 {
 }
 
 load {
-        format = " %1min"
+        format = " %1min  "
 }
 
 volume master {

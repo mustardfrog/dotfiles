@@ -33,6 +33,9 @@ vim.opt.incsearch = true
 vim.opt.scrolloff = 5
 vim.opt.foldmethod = "manual"
 vim.opt.signcolumn = 'yes:1'
-vim.cmd("colorscheme wildcharm")
 vim.o.bg = "dark"
 vim.opt.winborder = "rounded"
+vim.cmd.colorscheme("kanagawa")
+vim.api.nvim_set_hl(0, "Normal", { bg = "None" })
+vim.api.nvim_set_hl(0, "LineNr", { bg = "None" })
+vim.api.nvim_set_hl(0, "SignColumn", { bg = "None" })

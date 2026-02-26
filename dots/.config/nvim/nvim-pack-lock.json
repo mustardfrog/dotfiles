@@ -8,6 +8,18 @@
       "rev": "e32b672",
       "src": "https://github.com/j-hui/fidget.nvim"
     },
+    "friendly-snippets": {
+      "rev": "572f566",
+      "src": "https://github.com/rafamadriz/friendly-snippets"
+    },
+    "iceberg.nvim": {
+      "rev": "15070f7",
+      "src": "https://github.com/oahlen/iceberg.nvim"
+    },
+    "kanagawa.nvim": {
+      "rev": "aef7f5c",
+      "src": "https://github.com/rebelot/kanagawa.nvim"
+    },
     "mason.nvim": {
       "rev": "57e5a8a",
       "src": "https://github.com/williamboman/mason.nvim"
@@ -15,6 +27,10 @@
     "mini.pick": {
       "rev": "b435139",
       "src": "https://github.com/nvim-mini/mini.pick"
+    },
+    "nord.nvim": {
+      "rev": "07647ad",
+      "src": "https://github.com/gbprod/nord.nvim"
     },
     "nvim-lspconfig": {
       "rev": "a2bd1cf",
@@ -27,6 +43,10 @@
     "tokyonight.nvim": {
       "rev": "5da1b76",
       "src": "https://github.com/folke/tokyonight.nvim"
+    },
+    "vague.nvim": {
+      "rev": "eee599e",
+      "src": "https://github.com/vague-theme/vague.nvim"
     },
     "vim-fugitive": {
       "rev": "61b51c0",

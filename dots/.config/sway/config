@@ -119,10 +119,17 @@ bindsym $mod+Shift+w kill
 # bindsym $mod+Shift+d exec --no-startup-id "dmenu_run" -nb '#1e1e1e' -sf '#1e1e1e' -sb '#f4800d' -nf '#f4800d'
 # Grey dmenu
 # bindsym $mod+Shift+d exec --no-startup-id "dmenu_run" -nb '#1e1e1e' -sf '#1e1e1e' -sb '#cccccc' -nf '#cccccc'
-bindsym $mod+Shift+d exec --no-startup-id "dmenu_run" -nb '#ffee8c' -sf '#1e1e1e' -sb '#6c782e' -nf '#6c782e'
+# yellowish theme
+# bindsym $mod+Shift+d exec --no-startup-id "dmenu_run" -nb '#ffee8c' -sf '#1e1e1e' -sb '#6c782e' -nf '#6c782e'
+bindsym $mod+Shift+d exec --no-startup-id "rofi" -show 'drun'
+bindsym $mod+Shift+n exec --no-startup-id "flatpak run --command=io.github.alainm23.planify.quick-add io.github.alainm23.planify"
+
+# blueish theme
+# bindsym $mod+Shift+d exec --no-startup-id "dmenu_run" -nb '#ffee8c' -sf '#1e1e1e' -sb '#6c782e' -nf '#6c782e'
+
 bindsym $mod4+0 exec --no-startup-id "flatpak run md.obsidian.Obsidian"
 bindsym $mod4+f exec --no-startup-id "nemo"
-bindsym $mod4+n exec --no-startup-id "nautilun"
+bindsym $mod4+n exec --no-startup-id "nautilus"
 # bindsym $mod4+9 exec --no-startup-id "~/projects/bash/wallpaper.sh"
 bindsym $mod4+9 exec --no-startup-id "~/projects/bash/sway/random_wallpaper.sh"
 bindsym $mod4+d exec --no-startup-id "foot -- yazi Documents/"
@@ -308,12 +315,17 @@ client.unfocused #112111 #111111  #a9a9a9  #ff8da1
 # client.focused #eebd35 #eebd35  #1d2021  #0efece
 # client.focused #cccccc #cccccc  #1d2021  #0efece
 # Eye pleasing orange
-client.focused #f4800d #f4800d  #1d2021  #0efece
+# client.focused #f4800d #f4800d  #1d2021  #0efece
+
+# blueone
+client.focused #61a4ad #61a4ad  #1d2021  #0efece
+
 # client.focused #ff8da1 #ff8da1  #111111  #ff8da1
 #seat seat0 xcursor_theme Adwaita 30
 
 input type:keyboard {
-    xkb_layout "us,us,mm"
+    # xkb_layout "us,us,mm"
+    xkb_layout "us,mm"
     xkb_variant "dvorak,"
     # xkb_options grp:ctrls_toggle
     # xkb_options "grp:rctrl_rshift_toggle"
@@ -336,11 +348,6 @@ exec swayidle -w \
          resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 000000'
 # output "*" bg #000000 solid_color
-# output "*" bg ~/Pictures/wallpapers/flower.jpg fill
-output "*" bg ~/Pictures/wallpapers/blue_night.jpg fill
-# output "*" bg ~/Pictures/wallpapers/normalTown.jpg fill
-# output "*" bg ~/Pictures/wallpapers/blue_cloud.jpg fill
-# output "*" bg ~/Pictures/wallpapers/kick.jpg fill
+output "*" bg ~/Pictures/wallpapers/blue_sakura_2.jpg fill
 # output "*" bg ~/Pictures/wallpapers/yellow_flowers.jpg fill
-# output "*" bg ~/Pictures/wallpapers/yellow-car.jpg fill
 # output "*" bg ~/Pictures/wallpapers/samuraigirl.png fill

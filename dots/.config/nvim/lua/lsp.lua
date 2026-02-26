@@ -1,4 +1,4 @@
-vim.lsp.enable({ "lua_ls", "gopls", "rust-analyzer", "clangd", "python-lsp-server",})
+vim.lsp.enable({ "lua_ls", "gopls", "rust-analyzer", "clangd", "python-lsp-server", "ts_ls", })
 vim.diagnostic.config({ virtual_text = true })
 
 require 'blink.cmp'.setup({
