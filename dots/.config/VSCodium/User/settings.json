@@ -1,7 +1,7 @@
 {
-  "workbench.colorTheme": "Vitesse Dark",
-  "editor.fontFamily": "'Jetbrains Mono', 'monospace', IBM Plex Mono",
-  "editor.fontSize": 18,
+  "workbench.colorTheme": "Vague",
+  "editor.fontFamily": "'Geist Mono', 'Jetbrains Mono', 'monospace', IBM Plex Mono",
+  "editor.fontSize": 16,
   "editor.fontLigatures": true,
   "workbench.iconTheme": "catppuccin-mocha",
   "editor.tabSize": 2,
@@ -26,7 +26,6 @@
   "editor.scrollbar.horizontal": "hidden",
   "editor.smoothScrolling": true,
   "editor.tabFocusMode": true,
-  "workbench.activityBar.visible": false,
   "breadcrumbs.enabled": false,
   "notebook.breadcrumbs.showCodeCells": false,
   "vim.insertModeKeyBindings": [
@@ -88,7 +87,7 @@
     },
   ],
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "vim.leader": "<space>",
   "[jsonc]": {
@@ -101,4 +100,7 @@
   "editor.formatOnSave": true,
   "editor.suggest.preview": true,
   "window.zoomLevel": -1,
+  "workbench.activityBar.location": "bottom",
+  "workbench.activityBar.experimental.fontSize": 20,
+  "telemetry.feedback.enabled": false,
 }
