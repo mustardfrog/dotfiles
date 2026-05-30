@@ -8,14 +8,29 @@ vim.pack.add({
   { src = 'https://github.com/tpope/vim-fugitive' },
   { src = 'https://github.com/rafamadriz/friendly-snippets' },
   { src = 'https://github.com/rebelot/kanagawa.nvim' },
-  -- { src = 'https://github.com/gbprod/nord.nvim' },
+  { src = 'https://github.com/nvim-lua/plenary.nvim' },
+  { src = 'https://github.com/nvim-telescope/telescope.nvim' },
+  { src = 'https://github.com/gbprod/nord.nvim' },
   -- { src = 'https://github.com/folke/tokyonight.nvim' },
-  -- { src = 'https://github.com/oahlen/iceberg.nvim' },
+  { src = 'https://github.com/oahlen/iceberg.nvim' },
   { src = 'https://github.com/vague-theme/vague.nvim' },
 })
 
-require('mini.pick').setup({})
+-- require('mini.pick').setup({})
 require("oil").setup({})
 require("fidget").setup({})
 require("mason").setup({})
 require("kanagawa").setup({})
+
+require('telescope').setup({
+  defaults = {
+    mappings = {
+      n = {
+        ['<c-g>'] = require('telescope.actions').delete_buffer
+      },
+      i = {
+        ['<c-g>'] = require('telescope.actions').delete_buffer
+      },
+    }
+  }
+})

@@ -35,7 +35,9 @@ vim.opt.foldmethod = "manual"
 vim.opt.signcolumn = 'yes:1'
 vim.o.bg = "dark"
 vim.opt.winborder = "rounded"
-vim.cmd.colorscheme("kanagawa")
+-- vim.o.belloff = "esc"
+
+vim.cmd.colorscheme("nord")
 vim.api.nvim_set_hl(0, "Normal", { bg = "None" })
 vim.api.nvim_set_hl(0, "LineNr", { bg = "None" })
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "None" })

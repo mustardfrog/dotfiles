@@ -8,7 +8,7 @@ set $mod4 Mod4
 # font pango:IBM Plex Mono 10
 # font pango:Geist Mono 9
 # font pango: Mx437HP100LX6x8 8
-font pango: Ubuntu Mono 12
+font pango: Geist Mono 11
 
 # default_border pixel 2
 #hide_edge_borders vertical
@@ -26,6 +26,9 @@ default_floating_border pixel 2
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment sway
 exec --no-startup-id /usr/lib/xdg-desktop-portal -r
+
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
 exec_always mako
 bindsym $mod+c exec makoctl dismiss
 # exec_always wlsunset -l 14.5 -L 120.9
@@ -36,7 +39,7 @@ bindsym $mod+c exec makoctl dismiss
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- swaylock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- swaylock --nofork
 # exec --no-startup-id xss-lock -- swaylock 
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
@@ -67,23 +70,15 @@ bindsym XF86AudioPrev exec playerctl previous
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec foot
-# bindsym $mod+Shift+T exec wezterm
-bindsym $mod+Shift+T exec kitty
-bindsym $mod4+T exec ray-timer
+bindsym $mod+Return exec kitty
+bindsym $mod+Shift+T exec wezterm
 bindsym $mod4+A exec alacritty
 bindsym $mod4+Z exec zathura
-bindsym $mod4+Shift+Z exec okular
-# bindsym $mod4+Return exec emacs
-# bindsym $mod+Shift+T exec kitty
-# bindsym $mod4+n exec neovide
 bindsym $mod+n workspace next
 bindsym $mod+Shift+b workspace prev
 for_window [title="\ -\ Sharing\ Indicator$"] floating enable, sticky enable
 #for_window [title="firefox"] sticky enable
 for_window [title="qemu"] floating enable
-for_window [class="kitty"] floating enable
 for_window [class="hl"] floating enable
 for_window [class="OpenGL"] floating enable 
 for_window [class="raylib"] floating enable 
@@ -103,9 +98,10 @@ for_window [title="Blender Render"] floating enable
 for_window [title="Meeting Chat" instance="zoom"] floating enable
 for_window [class="sdl" instance="sdl"] floating enable
 for_window [class="Sxiv"] floating enable
-for_window [class="nautilus"] floating enable
+for_window [title="Home"] floating enable
 for_window [class="Home"] floating enable
 for_window [class="Zoom Meeting"] floating enable
+for_window [title="Zoom Meeting"] floating enable
 for_window [title="foot"] floating enable
 bindsym $mod+r sticky toggle
 bindsym $mod4+b bar mode toggle
@@ -122,18 +118,17 @@ bindsym $mod+Shift+w kill
 # yellowish theme
 # bindsym $mod+Shift+d exec --no-startup-id "dmenu_run" -nb '#ffee8c' -sf '#1e1e1e' -sb '#6c782e' -nf '#6c782e'
 bindsym $mod+Shift+d exec --no-startup-id "rofi" -show 'drun'
-bindsym $mod+Shift+n exec --no-startup-id "flatpak run --command=io.github.alainm23.planify.quick-add io.github.alainm23.planify"
+# bindsym $mod+Shift+n exec --no-startup-id "flatpak run --command=io.github.alainm23.planify.quick-add io.github.alainm23.planify"
 
 # blueish theme
 # bindsym $mod+Shift+d exec --no-startup-id "dmenu_run" -nb '#ffee8c' -sf '#1e1e1e' -sb '#6c782e' -nf '#6c782e'
 
-bindsym $mod4+0 exec --no-startup-id "flatpak run md.obsidian.Obsidian"
-bindsym $mod4+f exec --no-startup-id "nemo"
+bindsym $mod4+0 exec --no-startup-id "obsidian"
+# bindsym $mod4+f exec --no-startup-id "nemo"
 bindsym $mod4+n exec --no-startup-id "nautilus"
 # bindsym $mod4+9 exec --no-startup-id "~/projects/bash/wallpaper.sh"
 bindsym $mod4+9 exec --no-startup-id "~/projects/bash/sway/random_wallpaper.sh"
 bindsym $mod4+d exec --no-startup-id "foot -- yazi Documents/"
-
 
 # A more modern dmenu replacement is rofi:
  #bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -286,13 +281,14 @@ bar {
                 # background #eb6f92
                 # statusline #eb6f92
                 # separator #eb6f92
-                background #ffee8c
+                background #f4800d
                 statusline #000000
-                separator  #eeeeee
+                separator  #f4800d
                 #                   border background text
                 # This is the orange yellow
                 # focused_workspace  #f4800d #f4800d #000000
-                focused_workspace  #fff4bc #fff4bc #000000
+                # focused_workspace  #fff4bc #fff4bc #000000
+                focused_workspace  #f4800d #f4800d #000000
                 active_workspace   #eeeeee #000000 #eeeeee
                 inactive_workspace #000000 #000000 #eeeeee
                 urgent_workspace   #2f343a #900000 #ffffff
@@ -315,17 +311,17 @@ client.unfocused #112111 #111111  #a9a9a9  #ff8da1
 # client.focused #eebd35 #eebd35  #1d2021  #0efece
 # client.focused #cccccc #cccccc  #1d2021  #0efece
 # Eye pleasing orange
-# client.focused #f4800d #f4800d  #1d2021  #0efece
+client.focused #f4800d #f4800d  #1d2021  #0efece
 
 # blueone
-client.focused #61a4ad #61a4ad  #1d2021  #0efece
+# client.focused #61a4ad #61a4ad  #1d2021  #0efece
 
 # client.focused #ff8da1 #ff8da1  #111111  #ff8da1
 #seat seat0 xcursor_theme Adwaita 30
 
-input type:keyboard {
+input type:keyboard { 
     # xkb_layout "us,us,mm"
-    xkb_layout "us,mm"
+    xkb_layout "us,us,mm"
     xkb_variant "dvorak,"
     # xkb_options grp:ctrls_toggle
     # xkb_options "grp:rctrl_rshift_toggle"
@@ -343,11 +339,9 @@ input type:touchpad {
 }
 
 exec swayidle -w \
-         timeout 300 'swaylock -f -i ~/Pictures/wallpapers/train_ai.png fill' \
+         timeout 300 'swaylock -f  \
          timeout 600 'swaymsg "output * dpms off"' \
          resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 000000'
 # output "*" bg #000000 solid_color
-output "*" bg ~/Pictures/wallpapers/blue_sakura_2.jpg fill
-# output "*" bg ~/Pictures/wallpapers/yellow_flowers.jpg fill
-# output "*" bg ~/Pictures/wallpapers/samuraigirl.png fill
+output "*" bg ~/Pictures/wallpapers/cloudoil.jpg fill
