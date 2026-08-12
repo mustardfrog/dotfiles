@@ -31,13 +31,24 @@ vim.opt.backup = false
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.scrolloff = 5
-vim.opt.foldmethod = "manual"
+-- vim.opt.foldmethod = "manual"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
 vim.opt.signcolumn = 'yes:1'
 vim.o.bg = "dark"
 vim.opt.winborder = "rounded"
 -- vim.o.belloff = "esc"
 
-vim.cmd.colorscheme("nord")
+vim.cmd.colorscheme("gruvbox")
 vim.api.nvim_set_hl(0, "Normal", { bg = "None" })
 vim.api.nvim_set_hl(0, "LineNr", { bg = "None" })
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "None" })
+
+if vim.g.neovide then
+  vim.opt.guifont = "MartianMono Nerd Font Mono"
+  vim.g.neovide_opacity = 0.8
+  vim.g.neovide_normal_opacity = 0.8
+  vim.g.neovide_cursor_animation_length = 0.10
+  vim.g.neovide_cursor_vfx_mode = "wireframe"
+  vim.keymap.set({ 'n', 'v' }, '<C-V>', '"+p')
+end

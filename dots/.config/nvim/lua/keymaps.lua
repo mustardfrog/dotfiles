@@ -1,9 +1,15 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
+vim.keymap.set({ "n", "t" }, "<C-e>", require('custom.floatterm').toggle_term)
+vim.keymap.set("t", "<C-e>", "<c-\\><c-n>:FloatTerminal<CR>")
 vim.keymap.set("i", "jk", "<ESC>")
 vim.keymap.set("n", "X", ":bd<CR>")
+-- Copy paste
 vim.keymap.set('v', '<leader>y', '"+y')
+vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p')
+vim.keymap.set({ 'n', 'v' }, '<C-V>', '"+p')
 -- remove this "source" keybiOd later
 vim.keymap.set('n', '<leader>O', ':update<CR> :source<CR>')
 
@@ -24,11 +30,11 @@ vim.keymap.set("n", "<leader>gs", ":Git<CR>")
 vim.keymap.set("n", "<C-s>", ":w<CR>")
 
 vim.keymap.set('n', '<leader>o', ':Oil<CR>')
+
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Telescope help tags' })
 vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Telescope help tags' })
 
 -- vim.keymap.set('n', '<leader>sf', ':Pick files<CR>')
