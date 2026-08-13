@@ -13,7 +13,7 @@ vim.pack.add({
   { src = 'https://github.com/ellisonleao/gruvbox.nvim' },
   { src = 'https://github.com/chrisgrieser/nvim-origami' },
   { src = "https://github.com/catgoose/nvim-colorizer.lua" },
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 })
 -- { src = 'https://github.com/rebelot/kanagawa.nvim' },
 -- { src = 'https://github.com/gbprod/nord.nvim' },
@@ -26,7 +26,12 @@ require("oil").setup({})
 require("fidget").setup({})
 require("mason").setup({})
 require("origami").setup({})
+vim.o.termguicolors = true
 require("colorizer").setup({})
+require("nvim-treesitter.config").setup({
+  ensure_installed = { "typescript", "css", "javascript", "svelte" },
+  highlight = { enable = true },
+})
 -- require("kanagawa").setup({})
 
 -- require('telescope').setup({
