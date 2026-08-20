@@ -25,7 +25,6 @@
   "editor.scrollbar.vertical": "hidden",
   "editor.scrollbar.horizontal": "hidden",
   "editor.smoothScrolling": true,
-  "editor.tabFocusMode": true,
   "breadcrumbs.enabled": false,
   "notebook.breadcrumbs.showCodeCells": false,
   "vim.insertModeKeyBindings": [
@@ -103,4 +102,5 @@
   "workbench.activityBar.location": "bottom",
   "workbench.activityBar.experimental.fontSize": 20,
   "telemetry.feedback.enabled": false,
+  "svelte.enable-ts-plugin": true,
 }

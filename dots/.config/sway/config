@@ -8,11 +8,12 @@ set $mod4 Mod4
 # font pango:IBM Plex Mono 10
 # font pango:Geist Mono 9
 # font pango: Mx437HP100LX6x8 8
-font pango: Geist Mono 11
+# font pango: GoMonoNerdFontMono 11
+font pango: MartianMono Nerd Font Mono 11
 
-# default_border pixel 2
+default_border pixel 6
 #hide_edge_borders vertical
-default_floating_border pixel 2
+default_floating_border pixel 6
 
 #for_window [class="alacritty"] pixel none
 # for_window [class="code-oss"] pixel none
@@ -39,7 +40,7 @@ bindsym $mod+c exec makoctl dismiss
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- swaylock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- swaylock --nofork
 # exec --no-startup-id xss-lock -- swaylock 
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
@@ -126,9 +127,13 @@ bindsym $mod+Shift+d exec --no-startup-id "rofi" -show 'drun'
 bindsym $mod4+0 exec --no-startup-id "obsidian"
 # bindsym $mod4+f exec --no-startup-id "nemo"
 bindsym $mod4+n exec --no-startup-id "nautilus"
-# bindsym $mod4+9 exec --no-startup-id "~/projects/bash/wallpaper.sh"
-bindsym $mod4+9 exec --no-startup-id "~/projects/bash/sway/random_wallpaper.sh"
+bindsym $mod+Shift+n exec --no-startup-id "neovide"
+bindsym $mod4+Shift+n exec --no-startup-id sh -c 'cd ~/.config/nvim && exec neovide'
+bindsym $mod4+9 exec --no-startup-id "firefox"
 bindsym $mod4+d exec --no-startup-id "foot -- yazi Documents/"
+bindsym $mod4+r exec --no-startup-id "foot -- ~/Projects/junk_scripts/yazi_wallpaper_sway.sh"
+# bindsym $mod4+Shift+8 exec --no-startup-id "~/Projects/junk_scripts/rr.sh"
+bindsym $mod4+Shift+9 exec --no-startup-id "~/Projects/junk_scripts/rrr.sh"
 
 # A more modern dmenu replacement is rofi:
  #bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -256,13 +261,16 @@ mode "resize" {
 }
 
 bindsym $mod+Shift+P mode "resize"
-bindsym $mod+Shift+S exec slurp | grim -g - $(xdg-user-dir PICTURES)/Screenshots/$(date +'grim_%Y-%m-%d-%H%M%S.png')
+bindsym $mod4+S exec "flameshot full"
+bindsym $mod+Shift+S exec "flameshot gui"
+# bindsym $mod+Shift+S exec slurp | grim -g - $(xdg-user-dir PICTURES)/Screenshots/$(date +'grim_%Y-%m-%d-%H%M%S.png')
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
     # status_command i3status-rs /home/chaeng/.config/i3status-rust/config.toml
     status_command i3status
+    # swaybar_command ashell
     # mode hide
         colors {
             # light
@@ -296,9 +304,9 @@ bar {
         }
 }
 
-gaps inner 0
-gaps outer 0
-hide_edge_borders smart
+gaps inner 4
+gaps outer 4
+# hide_edge_borders smart
 smart_gaps off
 
 #<colorclass> <border> <background> <text> <indicator> <child_border>
@@ -311,7 +319,7 @@ client.unfocused #112111 #111111  #a9a9a9  #ff8da1
 # client.focused #eebd35 #eebd35  #1d2021  #0efece
 # client.focused #cccccc #cccccc  #1d2021  #0efece
 # Eye pleasing orange
-client.focused #f4800d #f4800d  #1d2021  #0efece
+client.focused #f4800d #f4800d  #1d2021  #eebd35
 
 # blueone
 # client.focused #61a4ad #61a4ad  #1d2021  #0efece
@@ -321,7 +329,7 @@ client.focused #f4800d #f4800d  #1d2021  #0efece
 
 input type:keyboard { 
     # xkb_layout "us,us,mm"
-    xkb_layout "us,us,mm"
+    xkb_layout "us,mm"
     xkb_variant "dvorak,"
     # xkb_options grp:ctrls_toggle
     # xkb_options "grp:rctrl_rshift_toggle"
@@ -338,10 +346,13 @@ input type:touchpad {
     middle_emulation enabled
 }
 
-exec swayidle -w \
-         timeout 300 'swaylock -f  \
-         timeout 600 'swaymsg "output * dpms off"' \
+exec_always swayidle -w \
+         timeout 600 'swaylock -f -i ~/Pictures/wallpapers/gruvbox-wallpapers/wallpapers/minimalistic/hlgruvgreen.png -K -L --indicator-radius 90 --indicator-thickness 25 --ring-color f4800d  --ring-clear-color f4892d -r'  \
+         timeout 800 'swaymsg "output * dpms off"' \
          resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
+         before-sleep 'swaylock -f -i ~/Pictures/wallpapers/gruvbox-wallpapers/wallpapers/minimalistic/FreshCake_computerFiles.jpg -K -L --indicator-radius 90 --indicator-thickness 25'
 # output "*" bg #000000 solid_color
-output "*" bg ~/Pictures/wallpapers/cloudoil.jpg fill
+# output "*" bg ~/Pictures/wallpapers/gruvbox-wallpapers/wallpapers/minimalistic/bunny.png fill
+# henlooutput * bg ~/.nothing/IMG_7872.JPEG fill
+# output * bg /home/chaeng/Pictures/wallpapers/gruvbox-wallpapers/wallpapers/pixelart/light/landscape.png fill
+output "*" bg  /home/chaeng/Pictures/wallpapers/gruvbox-wallpapers/wallpapers/mix/Powerline.png fill
