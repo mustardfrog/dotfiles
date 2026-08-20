@@ -1,6 +1,7 @@
+@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
 configuration {
   // modes: "window,drun,run,ssh";
-  font: "GeistMono 13";
+  font: "MartianMono Nerd Font Mono 16";
   fixed-height: true;
   timeout {
       action: "kb-cancel";
@@ -19,9 +20,10 @@ element {
 }
 
 window {
-  background-color: white;
-  border-color: rgb(8 81 156);
-  padding: 35px;
+  // background-color: orange;
+  // border-color: rgb(8 81 156);
+  // border-color: yellow;
+  padding: 20px;
 }
 
 listview { 
@@ -30,11 +32,15 @@ listview {
 
 
 entry, element-text  {
-  background-color: white;
-  text-color: rgb(107, 174, 213);
+  // background-color: orange;
+  // text-color: rgb(107, 174, 213);
+  // text-color: gray;
 }
 
 element-text selected {
-  background-color: rgb(107, 174, 213);
-  text-color: rgb(8, 81, 156);
+  // background-color: rgb(107, 174, 213);
+  // text-color: rgb(8, 81, 156);
+  background-color: #ff8c00;
+  text-color: black;
 }
+
