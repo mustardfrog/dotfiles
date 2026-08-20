@@ -49,5 +49,5 @@ if vim.g.neovide then
   vim.g.neovide_normal_opacity = 0.8
   vim.g.neovide_cursor_animation_length = 0.10
   vim.g.neovide_cursor_vfx_mode = "wireframe"
-  vim.keymap.set({ 'n', 'v' }, '<C-V>', '"+p')
+  -- vim.keymap.del("n", "<C-v>")
 end

@@ -9,7 +9,7 @@ vim.keymap.set("n", "X", ":bd<CR>")
 -- Copy paste
 vim.keymap.set('v', '<leader>y', '"+y')
 vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p')
-vim.keymap.set({ 'n', 'v' }, '<C-V>', '"+p')
+-- vim.keymap.set({ 'i' }, '<C-V>', '"+p')
 -- remove this "source" keybiOd later
 vim.keymap.set('n', '<leader>O', ':update<CR> :source<CR>')
 

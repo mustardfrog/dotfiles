@@ -1,5 +1,5 @@
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'svelte', 'rust', 'typescript', 'yuck', 'javascript', 'html', 'css' },
+  pattern = { 'svelte', 'rust', 'typescript', 'yuck', 'javascript', 'html', 'css', 'ron' },
   callback = function()
     -- syntax highlighting, provided by Neovim
     vim.treesitter.start()
