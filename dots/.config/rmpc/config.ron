@@ -49,7 +49,7 @@
         smoothing: (
           noise_reduction: 77, // default 77
           monstercat: false, // default false
-          waves: false, // default false
+          waves: true, // default false
           ),
         // this is a list of floating point numbers thats directly passed to cava
         // they are passed in order that they are defined
@@ -180,8 +180,14 @@
          (size: "60%", pane: Split(
                                    direction: Horizontal,
                                    panes: [
-                                   (size: "50%", pane: Pane(Queue)),
-                                   (size: "50%", pane: Pane(AlbumArt)),
+                                   (size: "50%", 
+                                  // borders: "LEFT | RIGHT | TOP | BOTTOM",
+                                  // border_symbols: Rounded,
+                                  pane: Pane(Queue)),
+                                   (size: "50%", 
+                                  borders: "LEFT | RIGHT | TOP | BOTTOM",
+                                  border_symbols: Rounded,
+                                  pane: Pane(AlbumArt)),
                                    ],
                                   )),
          ],

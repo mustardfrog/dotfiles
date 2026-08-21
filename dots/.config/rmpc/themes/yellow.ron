@@ -26,6 +26,15 @@
         dir_style: None,
         playlist_style: None,
     ),
+    cava: (
+        bar_width: 3,
+        bar_color: Gradient({
+          0: "rgb(255, 140, 0)",    // Low frequencies: Dark Orange
+    50: "rgb(255, 200, 0)",   // Mid frequencies: Golden Yellow
+    100: "rgb(255, 255, 0)",  // High frequencies: Bright Yellow
+      }),
+
+  ),
     level_styles: (
         info: (fg: "yellow", bg: "black"),
         warn: (fg: "red", bg: "black"),
