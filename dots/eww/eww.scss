@@ -1,0 +1,26 @@
+/** Global *******************************************/
+*{
+  all: unset;
+  font-family: MartianMono Nerd Font;
+}
+
+/** Generic window ***********************************/
+.genwin {
+  background-color: rgba(33, 33, 37, 0.9);
+  border-radius: 30px;
+}
+
+/** My Clock ********************************************/
+.my_time_hour, .my_time_min, .my_time_mer {
+  // color: #81A1C1;
+  color: rgba(129, 161, 193, 0.5);
+  font-size :40px;
+  font-weight : bold;
+}
+
+.my_time_month, .my_time_num, .my_time_day {
+  color: rgba(163, 190, 140, 0.7);
+  font-size :40px;
+  font-weight : bold;
+  // margin : 0px 0px 0px 0px;
+}

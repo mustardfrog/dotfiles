@@ -1,0 +1,37 @@
+;; example vars
+;; (defvar IMAGE "images/profile.png")
+;; (defvar NAME "Just Make It")
+
+;; Time vars
+(defpoll HOUR :interval "5s" `date +\"%I\"`)
+(defpoll MIN :interval "5s" `date +\"%M\"`)
+(defpoll MER :interval "5s" `date +\"%p\"`)
+
+(defpoll DAY :interval "5s" `date +\"%a\"`)
+(defpoll NUMDAY :interval "5s" `date +\"%d\"`)
+(defpoll MONTH :interval "5s" `date +\"%b\"`)
+
+;; Uptime vars
+(defpoll UPHOUR :interval "5s" `uptime -p | awk '{print $2 \" \" $3}' | sed 's/,//g'`)
+(defpoll UPMIN :interval "5s" `uptime -p | awk '{print $4 \" \" $5}'`)
+
+
+;; transparent clock
+(defwidget myclock [] 
+  (box :class "my_genwin" :orientation "v" :spacing 0 :space-evenly "true" :vexpand "false" :hexpand "false" 
+    (box  :spacing 0
+      (label :class "my_time_hour" :valign "fill" :wrap "true" :limit-width 0 :text HOUR)
+      (label :class "my_time_min" :valign "fill" :wrap "true" :limit-width 0 :text MIN)
+      (label :class "my_time_mer" :valign "fill" :wrap "true" :limit-width 0 :text MER))
+    (box :orientation "h" :spacing 10 
+      (label :class "my_time_month" :valign "fill" :halign "fill" :wrap "true" :limit-width 10 :text MONTH)
+      (label :class "my_time_num" :valign "fill" :halign "fill" :wrap "true" :limit-width 10 :text NUMDAY)
+      (label :class "my_time_day" :valign "fill" :halign "fill" :wrap "true" :limit-width 10 :text DAY))
+  )
+)
+
+;; my clock
+(defwindow myclock :stacking "fg" :monitor 0 :focusable "false" :screen 1 
+	    :geometry (geometry :x 1550 :y 950 :width 300 :height 150)
+					(myclock))
+
