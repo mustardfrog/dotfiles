@@ -1,23 +1,14 @@
-# sway config file 
-
 set $mod Mod1
 set $mod4 Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-# font pango:IBM Plex Mono 10
-# font pango:Geist Mono 9
 # font pango: Mx437HP100LX6x8 8
-# font pango: GoMonoNerdFontMono 11
 font pango: MartianMono Nerd Font Mono 11
 
 default_border pixel 6
 #hide_edge_borders vertical
 default_floating_border pixel 6
-
-#for_window [class="alacritty"] pixel none
-# for_window [class="code-oss"] pixel none
-# for_window [class="code-oss"] opacity 0.9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -25,14 +16,24 @@ default_floating_border pixel 6
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
+# --no-startup-id is not supported on sway
 exec --no-startup-id dex --autostart --environment sway
 exec --no-startup-id /usr/lib/xdg-desktop-portal -r
+exec --no-startup-id eww open myclock
+
+exec swaymsg 'workspace 3; exec firefox; workspace 4'
+exec swaymsg 'workspace 4; exec kitty; workspace 4'
+exec swaymsg 'workspace 1; exec com.sindresorhus.Caprine; workspace 4'
+exec swaymsg 'workspace 1; exec com.discordapp.Discord; workspace 4'
+exec swaymsg 'workspace 5; exec thunderbird; workspace 4'
+exec swaymsg 'workspace 5; exec io.github.alainm23.planify; workspace 4'
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
+exec_always wlsunset 14.6, 120.9 -T 5000 -t 3000
 exec_always mako
 bindsym $mod+c exec makoctl dismiss
-# exec_always wlsunset -l 14.5 -L 120.9
+
 # exec_always fcitx5
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -40,7 +41,7 @@ bindsym $mod+c exec makoctl dismiss
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- swaylock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- swaylock --nofork
 # exec --no-startup-id xss-lock -- swaylock 
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
@@ -48,7 +49,6 @@ bindsym $mod+c exec makoctl dismiss
 exec --no-startup-id nm-applet
 exec systemctl --user import-environment
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-# exec_always sh /home/chaeng/projects/bash/noti/battery_check.sh
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -79,30 +79,21 @@ bindsym $mod+n workspace next
 bindsym $mod+Shift+b workspace prev
 for_window [title="\ -\ Sharing\ Indicator$"] floating enable, sticky enable
 #for_window [title="firefox"] sticky enable
+
 for_window [title="qemu"] floating enable
-for_window [class="hl"] floating enable
 for_window [class="OpenGL"] floating enable 
-for_window [class="raylib"] floating enable 
-for_window [title="ray-timer"] floating enable 
 for_window [title="Bevy App"] floating enable 
 for_window [title="Floating Window"] floating enable 
-for_window [title="tk"] floating enable 
 for_window [title="\ -\ Sharing\ Indicator$"] floating enable, sticky enable
 # for_window [title="\ -\(DEBUG)"] floating enable 
 # for_window [title="Godot"] floating enable 
 for_window [title="Create New Node"] floating enable 
 for_window [class="vlc"] floating enable
-for_window [instance="Godot_Engine"] floating enable
 for_window [class="Godot"] floating enable
 for_window [title="hello"] floating enable 
-for_window [title="Blender Render"] floating enable
 for_window [title="Meeting Chat" instance="zoom"] floating enable
 for_window [class="sdl" instance="sdl"] floating enable
 for_window [class="Sxiv"] floating enable
-for_window [title="Home"] floating enable
-for_window [class="Home"] floating enable
-for_window [class="Zoom Meeting"] floating enable
-for_window [title="Zoom Meeting"] floating enable
 for_window [title="foot"] floating enable
 bindsym $mod+r sticky toggle
 bindsym $mod4+b bar mode toggle
@@ -110,22 +101,13 @@ bindsym $mod4+b bar mode toggle
 # kill focused window
 bindsym $mod+Shift+w kill
 
-# start dmenu (a program launcher)
-# bindsym $mod+Shift+d exec --no-startup-id "bemenu-run"
-# bindsym $mod+Shift+d exec --no-startup-id "wofi --show drun"
-# bindsym $mod+Shift+d exec --no-startup-id "dmenu_run" -nb '#1e1e1e' -sf '#1e1e1e' -sb '#f4800d' -nf '#f4800d'
-# Grey dmenu
-# bindsym $mod+Shift+d exec --no-startup-id "dmenu_run" -nb '#1e1e1e' -sf '#1e1e1e' -sb '#cccccc' -nf '#cccccc'
 # yellowish theme
 # bindsym $mod+Shift+d exec --no-startup-id "dmenu_run" -nb '#ffee8c' -sf '#1e1e1e' -sb '#6c782e' -nf '#6c782e'
+
 bindsym $mod+Shift+d exec --no-startup-id "rofi" -show 'drun'
 # bindsym $mod+Shift+n exec --no-startup-id "flatpak run --command=io.github.alainm23.planify.quick-add io.github.alainm23.planify"
 
-# blueish theme
-# bindsym $mod+Shift+d exec --no-startup-id "dmenu_run" -nb '#ffee8c' -sf '#1e1e1e' -sb '#6c782e' -nf '#6c782e'
-
 bindsym $mod4+0 exec --no-startup-id "obsidian"
-# bindsym $mod4+f exec --no-startup-id "nemo"
 bindsym $mod4+n exec --no-startup-id "nautilus"
 bindsym $mod+Shift+n exec --no-startup-id "neovide"
 bindsym $mod4+Shift+n exec --no-startup-id sh -c 'cd ~/.config/nvim && exec neovide'
@@ -135,12 +117,6 @@ bindsym $mod4+r exec --no-startup-id "foot -- ~/Projects/junk_scripts/yazi_wallp
 # bindsym $mod4+Shift+8 exec --no-startup-id "~/Projects/junk_scripts/rr.sh"
 bindsym $mod4+Shift+9 exec --no-startup-id "~/Projects/junk_scripts/rrr.sh"
 
-# A more modern dmenu replacement is rofi:
- #bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
-
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+TAB focus left
@@ -148,7 +124,7 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
+# use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -160,7 +136,7 @@ bindsym $mod+Shift+J move down
 bindsym $mod+Shift+K move up
 bindsym $mod+Shift+L move right
 
-# alternatively, you can use the cursor keys:
+# use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -190,7 +166,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+Shift+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod4+c focus child
 
 set $ws1 "1"
 set $ws2 "2"
@@ -265,37 +241,15 @@ bindsym $mod4+S exec "flameshot full"
 bindsym $mod+Shift+S exec "flameshot gui"
 # bindsym $mod+Shift+S exec slurp | grim -g - $(xdg-user-dir PICTURES)/Screenshots/$(date +'grim_%Y-%m-%d-%H%M%S.png')
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
     # status_command i3status-rs /home/chaeng/.config/i3status-rust/config.toml
     status_command i3status
-    # swaybar_command ashell
     # mode hide
         colors {
-            # light
-            # background #eeeeee
-            #     statusline #eeeeee
-            #     separator #eeeeee
-            #     #                   border background text
-            #     focused_workspace  #000000 #000000 #eeeeee
-            #     active_workspace   #eeeeee #eeeeee #000000
-            #     inactive_workspace #eeeeee #eeeeee #000000
-            #     urgent_workspace   #2f343a #900000 #ffffff
-            #     binding_mode       #2f343a #900000 #ffffff
-
-
-            # dark
-                # background #eb6f92
-                # statusline #eb6f92
-                # separator #eb6f92
                 background #f4800d
                 statusline #000000
                 separator  #f4800d
                 #                   border background text
-                # This is the orange yellow
-                # focused_workspace  #f4800d #f4800d #000000
-                # focused_workspace  #fff4bc #fff4bc #000000
                 focused_workspace  #f4800d #f4800d #000000
                 active_workspace   #eeeeee #000000 #eeeeee
                 inactive_workspace #000000 #000000 #eeeeee
@@ -310,33 +264,17 @@ gaps outer 4
 smart_gaps off
 
 #<colorclass> <border> <background> <text> <indicator> <child_border>
-client.unfocused #112111 #111111  #a9a9a9  #ff8da1
-# liht
-# client.focused #eeeeee #eeeeee  #000000  #000000
-# dark
-# client.focused #112111 #112111  #eeeeee  #eeeeee
-# yellow
-# client.focused #eebd35 #eebd35  #1d2021  #0efece
-# client.focused #cccccc #cccccc  #1d2021  #0efece
 # Eye pleasing orange
 client.focused #f4800d #f4800d  #1d2021  #eebd35
+client.unfocused #112111 #111111  #a9a9a9  #ff8da1
 
-# blueone
-# client.focused #61a4ad #61a4ad  #1d2021  #0efece
-
-# client.focused #ff8da1 #ff8da1  #111111  #ff8da1
 #seat seat0 xcursor_theme Adwaita 30
 
 input type:keyboard { 
     # xkb_layout "us,us,mm"
     xkb_layout "us,mm"
     xkb_variant "dvorak,"
-    # xkb_options grp:ctrls_toggle
-    # xkb_options "grp:rctrl_rshift_toggle"
     xkb_options "grp:win_space_toggle,ctrl:nocaps,lv3:ralt_alt"
-    # xkb_options "ctrl:nocaps"
-    # xkb_options grp:toggle
-    # xkb_options grp:rctrl_rshift_toggle
 }
 
 input type:touchpad {
@@ -351,8 +289,4 @@ exec_always swayidle -w \
          timeout 800 'swaymsg "output * dpms off"' \
          resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -i ~/Pictures/wallpapers/gruvbox-wallpapers/wallpapers/minimalistic/FreshCake_computerFiles.jpg -K -L --indicator-radius 90 --indicator-thickness 25'
-# output "*" bg #000000 solid_color
-# output "*" bg ~/Pictures/wallpapers/gruvbox-wallpapers/wallpapers/minimalistic/bunny.png fill
-# henlooutput * bg ~/.nothing/IMG_7872.JPEG fill
-# output * bg /home/chaeng/Pictures/wallpapers/gruvbox-wallpapers/wallpapers/pixelart/light/landscape.png fill
 output "*" bg  /home/chaeng/Pictures/wallpapers/gruvbox-wallpapers/wallpapers/mix/Powerline.png fill
