@@ -12,15 +12,26 @@
 
 /** My Clock ********************************************/
 .my_time_hour, .my_time_min, .my_time_mer {
-  // color: #81A1C1;
-  color: rgba(129, 161, 193, 0.5);
-  font-size :40px;
+  color: rgba(215, 153, 33, 0.4);
+  font-size :30px;
   font-weight : bold;
 }
 
 .my_time_month, .my_time_num, .my_time_day {
-  color: rgba(163, 190, 140, 0.7);
-  font-size :40px;
+  color: rgba(251, 73, 52, 0.4);
+  font-size :30px;
   font-weight : bold;
-  // margin : 0px 0px 0px 0px;
+}
+
+.photo {
+  opacity: 0.8;
+  border: orange;
+	border-radius: 20%;
+}
+
+.photowin {
+  min-width: 400px;
+	min-height: 400px;
+  border: orange;
+	border-radius: 20%;
 }

@@ -1,6 +1,6 @@
 ;; example vars
-;; (defvar IMAGE "images/profile.png")
-;; (defvar NAME "Just Make It")
+(defvar IMAGE "~/Pictures/wallpapers/gruvbox-wallpapers/wallpapers/anime/anime_skull.png")
+(defvar NAME "JUST IMAGE")
 
 ;; Time vars
 (defpoll HOUR :interval "5s" `date +\"%I\"`)
@@ -18,20 +18,32 @@
 
 ;; transparent clock
 (defwidget myclock [] 
-  (box :class "my_genwin" :orientation "v" :spacing 0 :space-evenly "true" :vexpand "false" :hexpand "false" 
+  (box :class "my_genwin" :orientation "v" :spacing 0 :space-evenly "false" :vexpand "false" :hexpand "false" 
     (box  :spacing 0
       (label :class "my_time_hour" :valign "fill" :wrap "true" :limit-width 0 :text HOUR)
       (label :class "my_time_min" :valign "fill" :wrap "true" :limit-width 0 :text MIN)
       (label :class "my_time_mer" :valign "fill" :wrap "true" :limit-width 0 :text MER))
-    (box :orientation "h" :spacing 10 
-      (label :class "my_time_month" :valign "fill" :halign "fill" :wrap "true" :limit-width 10 :text MONTH)
-      (label :class "my_time_num" :valign "fill" :halign "fill" :wrap "true" :limit-width 10 :text NUMDAY)
-      (label :class "my_time_day" :valign "fill" :halign "fill" :wrap "true" :limit-width 10 :text DAY))
+    (box :orientation "h" :spacing 0 
+      (label :class "my_time_month" :valign "fill" :halign "fill" :wrap "true" :limit-width 0 :text MONTH)
+      (label :class "my_time_num" :valign "fill" :halign "fill" :wrap "true" :limit-width 0 :text NUMDAY)
+      (label :class "my_time_day" :valign "fill" :halign "fill" :wrap "true" :limit-width 0 :text DAY))
   )
 )
 
 ;; my clock
 (defwindow myclock :stacking "fg" :monitor 0 :focusable "false" :screen 1 
-	    :geometry (geometry :x 1550 :y 950 :width 300 :height 150)
+	    :geometry (geometry :x 1550 :y 1100 :width 300 :height 10)
 					(myclock))
 
+(defwidget photo [] 
+	(box :class "photowin" :orientation "v" :valign "center" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false"
+    (image :path "/home/chaeng/Pictures/wallpapers/gruvbox-wallpapers/wallpapers/mix/abstract-2.jpg" :image-width 400 :image-height 400 
+      :fill true
+      :class "photo" 
+    )
+  )
+)
+
+(defwindow photowin :stacking "fg" :monitor 0 :focusable "false" :screen 1 
+	    :geometry (geometry :x 15 :y 15 :width 450 :height 450)
+					(photo))
