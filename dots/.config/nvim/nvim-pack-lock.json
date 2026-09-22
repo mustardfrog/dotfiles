@@ -28,6 +28,10 @@
       "rev": "ce42f6b629beeaa00591ba73a77d3eeac4cf28ce",
       "src": "https://github.com/savq/melange-nvim"
     },
+    "mini.pick": {
+      "rev": "360c1bb33610e030698d07ed15969ab4762dbcd6",
+      "src": "https://github.com/nvim-mini/mini.pick"
+    },
     "nvim-colorizer.lua": {
       "rev": "72a05f62c52241bc7441c820eb53946f92b2e6a4",
       "src": "https://github.com/catgoose/nvim-colorizer.lua"

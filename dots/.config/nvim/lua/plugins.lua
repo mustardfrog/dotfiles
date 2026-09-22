@@ -16,6 +16,7 @@ vim.pack.add({
   { src = "https://github.com/savq/melange-nvim" },
   { src = 'https://github.com/ellisonleao/gruvbox.nvim' },
   { src = "https://github.com/gremble0/yellowbeans.nvim" },
+  { src = 'https://github.com/nvim-mini/mini.pick' },
 })
 
 -- { src = 'https://github.com/rebelot/kanagawa.nvim' },
@@ -23,9 +24,10 @@ vim.pack.add({
 -- { src = 'https://github.com/folke/tokyonight.nvim' },
 -- { src = 'https://github.com/oahlen/iceberg.nvim' },
 -- { src = 'https://github.com/vague-theme/vague.nvim' },
--- { src = 'https://github.com/nvim-mini/mini.pick' },
 
 require("oil").setup({})
+-- mini.pick needed better for code actions
+require("mini.pick").setup({})
 require("fidget").setup({})
 require("mason").setup({})
 require("origami").setup({})
