@@ -1,3 +1,8 @@
+require("nvim-treesitter.config").setup({
+  ensure_installed = { "typescript", "css", "javascript", "svelte" },
+  highlight = { enable = true },
+})
+
 vim.api.nvim_create_autocmd('FileType', {
   pattern = {
     'svelte', 'rust',
@@ -7,8 +12,10 @@ vim.api.nvim_create_autocmd('FileType', {
     'go', 'react',
     'vue', 'c',
     'cpp', 'odin',
-    'zig', 'ocaml'
+    'zig', 'ocaml',
+    'nix'
   },
+
   callback = function()
     -- syntax highlighting, provided by Neovim
     vim.treesitter.start()

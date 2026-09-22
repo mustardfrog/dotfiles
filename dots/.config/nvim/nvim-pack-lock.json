@@ -12,29 +12,21 @@
       "rev": "572f566",
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
+    "gitsigns.nvim": {
+      "rev": "8d79f2410c76e62b92e51c28c82e28c1c5a3daeb",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
     "gruvbox.nvim": {
       "rev": "154eb5ff5b96d0641307113fa385eaf0d36d9796",
       "src": "https://github.com/ellisonleao/gruvbox.nvim"
-    },
-    "iceberg.nvim": {
-      "rev": "15070f7",
-      "src": "https://github.com/oahlen/iceberg.nvim"
-    },
-    "kanagawa.nvim": {
-      "rev": "aef7f5c",
-      "src": "https://github.com/rebelot/kanagawa.nvim"
     },
     "mason.nvim": {
       "rev": "57e5a8a",
       "src": "https://github.com/williamboman/mason.nvim"
     },
-    "mini.pick": {
-      "rev": "b435139",
-      "src": "https://github.com/nvim-mini/mini.pick"
-    },
-    "nord.nvim": {
-      "rev": "07647ad",
-      "src": "https://github.com/gbprod/nord.nvim"
+    "melange-nvim": {
+      "rev": "ce42f6b629beeaa00591ba73a77d3eeac4cf28ce",
+      "src": "https://github.com/savq/melange-nvim"
     },
     "nvim-colorizer.lua": {
       "rev": "72a05f62c52241bc7441c820eb53946f92b2e6a4",
@@ -64,12 +56,8 @@
       "rev": "7d324792b7943e4aa16ad007212e6acc6f9fe335",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
     },
-    "tokyonight.nvim": {
-      "rev": "5da1b76",
-      "src": "https://github.com/folke/tokyonight.nvim"
-    },
     "vague.nvim": {
-      "rev": "eee599e",
+      "rev": "eee599e434d958b7d0890f8b4a0e5fe6ab5d3a0b",
       "src": "https://github.com/vague-theme/vague.nvim"
     },
     "vim-fugitive": {
@@ -79,6 +67,10 @@
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
       "src": "https://github.com/folke/which-key.nvim"
+    },
+    "yellowbeans.nvim": {
+      "rev": "880cd2f7fbf8e806c6725325134313636a4419e4",
+      "src": "https://github.com/gremble0/yellowbeans.nvim"
     }
   }
 }
