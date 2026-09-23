@@ -37,6 +37,9 @@ vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Telescope find f
 vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Telescope help tags' })
+vim.keymap.set('n', '<leader>lr', builtin.lsp_references, { desc = 'Telescope lsp references' })
+
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Lsp definition' })
 
 -- vim.keymap.set('n', '<leader>sf', ':Pick files<CR>')
 -- vim.keymap.set('n', '<leader>sb', ':Pick buffers<CR>')
